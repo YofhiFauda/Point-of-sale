@@ -17,14 +17,8 @@ Point of Sale Management and Invoice build with Laravel 10 and MySql.
 - Employees
 - Customers
 - Suppliers
-- Salary
-  - Advance Salary
-  - Pay Salary
-  - History Pay Salary
-- Attendance
 - Role and Permission
 - Users Management
-- Backup Database
 
 ## 🚀 How to Use
 
