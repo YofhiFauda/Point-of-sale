@@ -105,13 +105,3 @@ Point of Sale Management and Invoice build with Laravel 10 and MySql.
 
     or username: `user` and password: `password`
 
-## 📝 Contributing
-
-If you have any ideas to make it more interesting, please send a PR, or create an issue for a feature request.
-
-# 🤝 License
-
-### [MIT](LICENSE)
-
-> Github [@fajarghifar](https://github.com/fajarghifar) &nbsp;&middot;&nbsp;
-> Instagram [@fajarghifar](https://instagram.com/fajarghifar)
