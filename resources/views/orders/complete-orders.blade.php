@@ -3,6 +3,7 @@
 @section('container')
 <div class="container-fluid">
     <div class="row">
+        {{-- Start of Complete List Order, Export and Clear --}}
         <div class="col-lg-12">
             @if (session()->has('success'))
                 <div class="alert text-white bg-success" role="alert">
@@ -17,10 +18,12 @@
                     <h4 class="mb-3">Complete Order List</h4>
                 </div>
                 <div>
+                    <a href="{{ route('order.exportData') }}" class="btn btn-success add-list">Export</a>
                     <a href="{{ route('order.pendingOrders') }}" class="btn btn-danger add-list"><i class="fa-solid fa-trash mr-3"></i>Clear Search</a>
                 </div>
             </div>
         </div>
+        {{-- End Of Complete Order List, Export and Clear Search --}}
 
         <div class="col-lg-12">
             <form action="{{ route('order.completeOrders') }}" method="get">
@@ -46,6 +49,29 @@
                                     <button type="submit" class="input-group-text bg-primary"><i class="fa-solid fa-magnifying-glass font-size-20"></i></button>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-12">
+            <form action="{{ route('order.completeOrders') }}" method="get">
+                <div class="d-flex flex-wrap align-items-center justify-content-end">
+                    <div class="form-group row">
+                        <label class="control-label align-self-center" for="start_date">Start Date:</label>
+                        <div class="col-sm-4">
+                            <input type="date" id="start_date" class="form-control" name="start_date" value="{{ request('start_date') }}">
+                        </div>
+                        <label class="control-label align-self-center" for="end_date">End Date:</label>
+                        <div class="col-sm-4">
+                            <input type="date" id="end_date" class="form-control" name="end_date" value="{{ request('end_date') }}">
+                        </div>
+                    </div>
+            
+                    <div class="form-group row">
+                        <div class="col-sm-9">
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </div>
                 </div>

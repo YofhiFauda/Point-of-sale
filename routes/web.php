@@ -112,6 +112,7 @@ Route::middleware(['permission:orders.menu'])->group(function () {
     Route::get('/orders/complete', [OrderController::class, 'completeOrders'])->name('order.completeOrders');
     Route::get('/orders/details/{order_id}', [OrderController::class, 'orderDetails'])->name('order.orderDetails');
     Route::put('/orders/update/status', [OrderController::class, 'updateStatus'])->name('order.updateStatus');
+    Route::get('/orders/export', [OrderController::class, 'exportData'])->name('order.exportData');
     Route::get('/orders/invoice/download/{order_id}', [OrderController::class, 'invoiceDownload'])->name('order.invoiceDownload');
 
     // Pending Due

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use Exception;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\OrderDetails;
@@ -13,6 +14,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
+
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
 class OrderController extends Controller
 {
@@ -42,12 +46,84 @@ class OrderController extends Controller
             abort(400, 'The per-page parameter must be an integer between 1 and 100.');
         }
 
-        $orders = Order::where('order_status', 'complete')->sortable()->paginate($row);
+        // $orders = Order::where('order_status', 'complete')->sortable()->paginate($row);
+
+        $query = Order::where('order_status', 'complete')->sortable();
+
+        // Add date range filter
+        $startDate = request('start_date');
+        $endDate = request('end_date');
+    
+        if ($startDate && $endDate) {
+            $query->whereBetween('order_date', [$startDate, $endDate]);
+        }
+    
+        $orders = $query->paginate($row);
+
 
         return view('orders.complete-orders', [
-            'orders' => $orders
+            'orders' => $orders,
         ]);
     }
+
+    // Start Export Data Transaksi
+    public function exportExcel($orders){
+        ini_set('max_execution_time', 0);
+        ini_set('memory_limit', '4000M');
+
+        try {
+            $spreadSheet = new Spreadsheet();
+            $spreadSheet->getActiveSheet()->getDefaultColumnDimension()->setWidth(20);
+            $spreadSheet->getActiveSheet()->fromArray($orders);
+            $Excel_writer = new Xls($spreadSheet);
+            header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment;filename="Orders_ExportedData.xls"');
+            header('Cache-Control: max-age=0');
+            ob_end_clean();
+            $Excel_writer->save('php://output');
+            exit();
+        } catch (Exception $e) {
+            return;
+        }
+    }
+    
+    function exportData(){
+
+        $orders = Order::all()->sortByDesc('invoice_no');
+
+        $order_array [] = array(
+            'Customer Id',
+            'Order Date',
+            'Order Status',
+            'Total Products',
+            'Sub Total',
+            'Vat',
+            'Invoice No',
+            'Total',
+            'Payment Status',
+            'Pay',
+            'Due',
+        );
+        foreach($orders as $order)
+        {
+            $order_array[] = array(
+                'Customer Id' => $order->customer_id,
+                'Order Date' => $order->order_date,
+                'Order Status' => $order->order_status,
+                'Total Products' => $order->total_products,
+                'Sub Total' => $order->sub_total,
+                'Vat' => $order->vat,
+                'Invoice No' =>$order->invoice_no,
+                'Total' =>$order->total,
+                'Payment Status' =>$order->payment_status,
+                'Pay' =>$order->pay,
+                'Due' =>$order->due,
+            );
+        }
+        $this->ExportExcel($order_array);
+    }
+
+     // End Export Data Transaksi
 
     public function stockManage()
     {
