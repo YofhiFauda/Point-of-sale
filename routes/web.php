@@ -115,6 +115,12 @@ Route::middleware(['permission:orders.menu'])->group(function () {
     Route::get('/orders/export', [OrderController::class, 'exportData'])->name('order.exportData');
     Route::get('/orders/invoice/download/{order_id}', [OrderController::class, 'invoiceDownload'])->name('order.invoiceDownload');
 
+    //delelte order by id
+    Route::delete('/orders/orderDestroy/{id}', [OrderController::class, 'orderDestroy'])->name('order.destroy');
+
+    //delete all Orders
+    Route::delete('/orders/delete-all', [OrderController::class, 'destroyAll'])->name('order.destroyAll');
+
     // Pending Due
     Route::get('/pending/due', [OrderController::class, 'pendingDue'])->name('order.pendingDue');
     Route::get('/order/due/{id}', [OrderController::class, 'orderDueAjax'])->name('order.orderDueAjax');

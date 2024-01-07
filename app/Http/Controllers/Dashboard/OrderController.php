@@ -120,6 +120,7 @@ class OrderController extends Controller
                 'Due' =>$order->due,
             );
         }
+
         $this->ExportExcel($order_array);
     }
 
@@ -294,4 +295,30 @@ class OrderController extends Controller
 
         return Redirect::route('order.pendingDue')->with('success', 'Due Amount Updated Successfully!');
     }
+
+    //delete order by id
+    public function orderDestroy(Int $id)
+    {
+
+        Order::destroy($id);
+
+        return Redirect::route('order.completeOrders')->with('success', 'Order has been deleted!');
+    }
+
+    //delete All Order
+    public function destroyAll()
+    {
+        try {
+            // Delete all orders with order_status 'complete'
+            Order::where('order_status', 'complete')->delete();
+
+            // You may also want to delete related data or perform additional actions here
+
+            return Redirect::route('order.completeOrders')->with('success', 'All complete orders have been deleted!');
+        } catch (Exception $e) {
+            // Handle any exceptions or errors that may occur during the deletion process
+            return Redirect::route('order.completeOrders')->with('error', 'Failed to delete complete orders. Error: ' . $e->getMessage());
+        }
+    }
+
 }

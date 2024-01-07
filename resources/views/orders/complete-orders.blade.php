@@ -19,7 +19,12 @@
                 </div>
                 <div>
                     <a href="{{ route('order.exportData') }}" class="btn btn-success add-list">Export</a>
-                    <a href="{{ route('order.pendingOrders') }}" class="btn btn-danger add-list"><i class="fa-solid fa-trash mr-3"></i>Clear Search</a>
+                    {{-- <button type="submit" class="btn btn-danger" name="delete_all" value="1" onclick="return confirm('Are you sure you want to delete all transactions?')">Delete All Transactions</button> --}}
+                    <form action="{{ route('order.destroyAll') }}" method="post" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                         <button type="submit" class="btn btn-danger" name="delete_all" value="1" onclick="return confirm('Are you sure you want to delete all transactions?')">Delete All Transactions</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -47,6 +52,7 @@
                                 <input type="text" id="search" class="form-control" name="search" placeholder="Search order" value="{{ request('search') }}">
                                 <div class="input-group-append">
                                     <button type="submit" class="input-group-text bg-primary"><i class="fa-solid fa-magnifying-glass font-size-20"></i></button>
+                                    <a href="{{ route('order.completeOrders') }}" class="input-group-text bg-danger"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -106,6 +112,9 @@
                                 <span class="badge badge-success">{{ $order->order_status }}</span>
                             </td>
                             <td>
+                                <form action="{{ route('order.destroy', $order->id) }}" method="POST" style="margin-bottom: 5px">
+                                    @method('delete')
+                                    @csrf
                                 <div class="d-flex align-items-center list-action">
                                     <a class="btn btn-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Details" href="{{ route('order.orderDetails', $order->id) }}">
                                         Details
@@ -113,7 +122,9 @@
                                     <a class="btn btn-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Print" href="{{ route('order.invoiceDownload', $order->id) }}">
                                         Print
                                     </a>
+                                    <button type="submit" class="btn btn-warning mr-2 border-none" onclick="return confirm('Are you sure you want to delete this record?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="ri-delete-bin-line mr-0"></i></button>
                                 </div>
+                            </form>
                             </td>
                         </tr>
                         @endforeach
