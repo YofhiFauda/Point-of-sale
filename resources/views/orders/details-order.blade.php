@@ -106,8 +106,10 @@
                             <td>{{ $item->product->product_name }}</td>
                             <td>{{ $item->product->product_code }}</td>
                             <td>{{ $item->quantity }}</td>
-                            <td>{{ $item->unitcost }}</td>
-                            <td>{{ $item->total }}</td>
+                            {{-- <td>${{ $item->unitcost }}</td>
+                            <td>${{ $item->total }}</td> --}}
+                            <td>${{ number_format($item->unitcost, 2) }}</td>
+                            <td>${{ number_format($item->total, 2) }}</td>
                         </tr>
                         @endforeach
                     </tbody>

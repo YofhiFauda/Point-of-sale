@@ -82,7 +82,8 @@
                             <td>{{ $product->product_name }}</td>
                             <td>{{ $product->category->name }}</td>
                             <td>{{ $product->supplier->name }}</td>
-                            <td>${{ $product->selling_price }}</td>
+                            {{-- <td>${{ $product->selling_price }}</td> --}}
+                            <td>${{ number_format( $product->selling_price, 2) }}</td>
                             <td>
                                 <span class="btn btn-warning text-white mr-2">{{ $product->product_store }}</span>
                             </td>

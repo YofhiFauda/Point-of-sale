@@ -77,12 +77,14 @@
                             <td>{{ $order->payment_status }}</td>
                             <td>
                                 <span class="btn btn-warning text-white">
-                                    {{ $order->pay }}
+                                    {{-- ${{ $order->pay }} --}}
+                                    ${{ number_format($order->pay, 2) }}
                                 </span>
                             </td>
                             <td>
                                 <span class="btn btn-danger text-white">
-                                    {{ $order->due }}
+                                    {{-- ${{ $order->due }} --}}
+                                    ${{ number_format($order->due, 2) }}
                                 </span>
                             </td>
                             <td>

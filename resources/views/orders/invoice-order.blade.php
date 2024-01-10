@@ -62,8 +62,10 @@
                                 <div class="col-sm-6 text-end mb-50">
                                     <h4 class="inv-title-1">Details</h4>
                                     <p class="inv-from-1">Payment Status: {{ $order->payment_status }}</p>
-                                    <p class="inv-from-1">Total Pay: ${{ $order->pay }}</p>
-                                    <p class="inv-from-1">Due: ${{ $order->due }}</p>
+                                    {{-- <p class="inv-from-1">Total Pay: ${{ $order->pay }}</p> --}}
+                                    <p class="inv-from-1">Total Pay: ${{ number_format($order->pay, 2) }}</p>
+                                    {{-- <p class="inv-from-1">Due: ${{ $order->due }}</p> --}}
+                                    <p class="inv-from-1">Due: ${{ number_format($order->due, 2) }}</p>
                                 </div>
                             </div>
                         </div>
@@ -83,16 +85,19 @@
                                         @foreach ($orderDetails as $item)
                                         <tr>
                                             <td>{{ $item->product->product_name }}</td>
-                                            <td>${{ $item->unitcost }}</td>
+                                            {{-- <td>${{ $item->unitcost }}</td> --}}
+                                            <td>${{ number_format($item->unitcost, 2) }}</td>
                                             <td>{{ $item->quantity }}</td>
-                                            <td>${{ $item->total }}</td>
+                                            {{-- <td>${{ $item->total }}</td> --}}
+                                            <td>${{ number_format( $item->total, 2) }}</td>
                                         </tr>
                                         @endforeach
                                         <tr>
                                             <td><strong class="text-danger">Total</strong></td>
                                             <td></td>
                                             <td></td>
-                                            <td><strong class="text-danger">${{ $order->total }}</strong></td>
+                                            {{-- <td><strong class="text-danger">${{ $order->total }}</strong></td> --}}
+                                            <td><strong class="text-danger">${{ number_format(  $order->total, 2) }}</strong></td>
                                         </tr>
                                     </tbody>
                                 </table>

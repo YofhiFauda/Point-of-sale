@@ -32,7 +32,8 @@
                                 </div>
                                 <div>
                                     <p class="mb-2">Total Paid</p>
-                                    <h4>$ {{ $total_paid }}</h4>
+                                    {{-- <h4>$ {{ $total_paid }}</h4> --}}
+                                    <h4>${{ number_format($total_paid, 2) }}</h4>
                                 </div>
                             </div>
                             <div class="iq-progress-bar mt-2">
@@ -51,7 +52,8 @@
                                 </div>
                                 <div>
                                     <p class="mb-2">Total Due</p>
-                                    <h4>$ {{ $total_due }}</h4>
+                                    {{-- <h4>$ {{ $total_due }}</h4> --}}
+                                    <h4>${{ number_format($total_due, 2) }}</h4>
                                 </div>
                             </div>
                             <div class="iq-progress-bar mt-2">

@@ -44,8 +44,8 @@
                                 </div>
                             </form>
                         </td>
-                        <td>{{ $item->price }}</td>
-                        <td>{{ $item->subtotal }}</td>
+                        <td>${{ number_format($item->price, 2) }}</td>
+                        <td>${{ number_format($item->subtotal, 2) }}</td>
                         <td>
                             <a href="{{ route('pos.deleteCart', $item->rowId) }}" class="btn btn-danger border-none" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa-solid fa-trash mr-0"></i></a>
                         </td>
@@ -59,7 +59,8 @@
                     <p class="h4 text-primary">Quantity: {{ Cart::count() }}</p>
                 </div>
                 <div class="form-group col-sm-6">
-                    <p class="h4 text-primary">Subtotal: {{ Cart::subtotal() }}</p>
+                    {{-- <p class="h4 text-primary">Subtotal: {{ Cart::subtotal() }}</p> --}}
+                    <p class="h4 text-primary">Subtotal: ${{ number_format( Cart::subtotal(), 2) }}</p>
                 </div>
                 <div class="form-group col-sm-6">
                     <p class="h4 text-primary">Vat: {{ Cart::tax() }}</p>
@@ -126,8 +127,6 @@
                             </div>
                         </div>
                     </form>
-
-
                     <div class="table-responsive rounded mb-3 border-none">
                         <table class="table mb-0">
                             <thead class="bg-white text-uppercase">
@@ -147,7 +146,8 @@
                                         <img class="avatar-60 rounded" src="{{ $product->product_image ? asset('storage/products/'.$product->product_image) : asset('assets/images/product/default.webp') }}">
                                     </td>
                                     <td>{{ $product->product_name }}</td>
-                                    <td>{{ $product->selling_price }}</td>
+                                    {{-- <td>${{ $product->selling_price }}</td> --}}
+                                    <td>${{ number_format($product->selling_price, 2) }}</td>
                                     <td>
                                         <form action="{{ route('pos.addCart') }}" method="POST"  style="margin-bottom: 5px">
                                             @csrf

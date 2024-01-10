@@ -75,7 +75,8 @@
                             <td>{{ $order->customer->name }}</td>
                             <td>{{ $order->order_date }}</td>
                             <td>{{ $order->payment_status }}</td>
-                            <td>{{ $order->total }}</td>
+                            {{-- <td>${{ $order->total }}</td> --}}
+                            <td>${{ number_format($order->total, 2) }}</td>
                             <td>
                                 <span class="badge badge-danger">{{ $order->order_status }}</span>
                             </td>
