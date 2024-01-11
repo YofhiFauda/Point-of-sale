@@ -29,7 +29,7 @@
             </div>
         </div>
         {{-- End Of Complete Order List, Export and Clear Search --}}
-
+        
         <div class="col-lg-12">
             <form action="{{ route('order.completeOrders') }}" method="get">
                 <div class="d-flex flex-wrap align-items-center justify-content-between">
@@ -91,9 +91,12 @@
                         <tr class="ligth ligth-data">
                             <th>No.</th>
                             <th>Invoice No</th>
-                            <th>@sortablelink('customer.name', 'name')</th>
                             <th>@sortablelink('order_date', 'order date')</th>
-                            <th>@sortablelink('pay')</th>
+                            <th>Total Order</th>
+                            <th>Harga</th>
+                            <th>Harga + ppn</th>
+                            <th>Bayar</th>
+                            <th>Kembalian</th>
                             <th>Payment</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -104,10 +107,13 @@
                         <tr>
                             <td>{{ (($orders->currentPage() * 10) - 10) + $loop->iteration  }}</td>
                             <td>{{ $order->invoice_no }}</td>
-                            <td>{{ $order->customer->name }}</td>
                             <td>{{ $order->order_date }}</td>
+                            <td>{{ $order->total_products }} pcs</td>
+                            <td>${{ number_format($order->sub_total, 2) }}</td>
                             {{-- <td>${{ $order->pay }}</td> --}}
+                            <td>${{ number_format($order->total, 2) }}</td>
                             <td>${{ number_format($order->pay, 2) }}</td>
+                            <td>${{ number_format($order->due, 2) }}</td>
                             <td>{{ $order->payment_status }}</td>
                             <td>
                                 <span class="badge badge-success">{{ $order->order_status }}</span>
@@ -130,6 +136,19 @@
                         </tr>
                         @endforeach
                     </tbody>
+                    <tfoot class="ligth-body">
+                        <tr>
+                            <th>Total</th>
+                            <th></th>
+                            <th></th>
+                            <th>{{ $orders->sum('total_products') }} pcs </th>
+                            <th></th>
+                            <th> ${{ number_format($orders->sum('total'), 2) }}</th>
+                            <th>${{ number_format($orders->sum('pay'), 2) }}</th>
+                            <th>${{ number_format($orders->sum('due'), 2) }}</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
             {{ $orders->links() }}

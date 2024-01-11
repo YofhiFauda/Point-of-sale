@@ -59,10 +59,13 @@
                         <tr class="ligth ligth-data">
                             <th>No.</th>
                             <th>Invoice No</th>
-                            <th>@sortablelink('customer.name', 'name')</th>
                             <th>@sortablelink('order_date', 'order date')</th>
+                            <th>Total Order</th>
+                            <th>Harga</th>
+                            <th>Harga + ppn</th>
+                            <th>Bayar</th>
+                            <th>Kembalian</th>
                             <th>Payment</th>
-                            <th>@sortablelink('total')</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -72,11 +75,15 @@
                         <tr>
                             <td>{{ (($orders->currentPage() * 10) - 10) + $loop->iteration  }}</td>
                             <td>{{ $order->invoice_no }}</td>
-                            <td>{{ $order->customer->name }}</td>
                             <td>{{ $order->order_date }}</td>
+                            <td>{{ $order->total_products }} pcs</td>
+                            <td>${{ number_format($order->sub_total, 2) }}</td>
+                            {{-- <td>${{ $order->pay }}</td> --}}
+                            <td>${{ number_format($order->total, 2) }}</td>
+                            <td>${{ number_format($order->pay, 2) }}</td>
+                            <td>${{ number_format($order->due, 2) }}</td>
                             <td>{{ $order->payment_status }}</td>
                             {{-- <td>${{ $order->total }}</td> --}}
-                            <td>${{ number_format($order->total, 2) }}</td>
                             <td>
                                 <span class="badge badge-danger">{{ $order->order_status }}</span>
                             </td>
