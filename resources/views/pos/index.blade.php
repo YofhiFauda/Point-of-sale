@@ -19,7 +19,11 @@
         </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div class="col-lg-6 col-md-12 mb-3">
+=======
+        <div class="col-lg-4 col-md-12 mb-3">
+>>>>>>> 07f4f05d0d1b65ceb0fa4ba9c56a53a9733c5656
             <table class="table">
                 <thead>
                     <tr class="ligth">
@@ -56,18 +60,18 @@
             </table>
 
             <div class="container row text-center">
-                <div class="form-group col-sm-6">
-                    <p class="h4 text-primary">Quantity: {{ Cart::count() }}</p>
+                <div class="form-group col-sm-3">
+                    <p class="h5 text-primary">Quantity: {{ Cart::count() }}</p>
                 </div>
-                <div class="form-group col-sm-6">
+                <div class="form-group col-sm-3">
                     {{-- <p class="h4 text-primary">Subtotal: {{ Cart::subtotal() }}</p> --}}
-                    <p class="h4 text-primary">Subtotal: ${{ number_format( Cart::subtotal(), 2) }}</p>
+                    <p class="h5 text-primary">Subtotal: ${{ number_format( Cart::subtotal(), 2) }}</p>
                 </div>
-                <div class="form-group col-sm-6">
-                    <p class="h4 text-primary">Vat: {{ Cart::tax() }}</p>
+                <div class="form-group col-sm-3">
+                    <p class="h5 text-primary">Vat: {{ Cart::tax() }}</p>
                 </div>
-                <div class="form-group col-sm-6">
-                    <p class="h4 text-primary">Total: {{ Cart::total() }}</p>
+                <div class="form-group col-sm-3">
+                    <p class="h5 text-primary">Total: {{ Cart::total() }}</p>
                 </div>
             </div>
 
@@ -98,16 +102,20 @@
                 </div>
             </form>
         </div>
+<<<<<<< HEAD
 
 =======
 >>>>>>> 7bd455404da2d33de54f50242e1840f0e9b8482b
         <div class="col-lg-6 col-md-12">
+=======
+        <div class="col-lg-7 col-md-12 ">
+>>>>>>> 07f4f05d0d1b65ceb0fa4ba9c56a53a9733c5656
             <div class="card card-block card-stretch card-height">
                 <div class="card-body">
                     <form action="#" method="get">
                         <div class="d-flex flex-wrap align-items-center justify-content-between">
                             <div class="form-group row">
-                                <label for="row" class="align-self-center mx-2">Row:</label>
+                                <label for="row" class="align-self-center mx-4">Row:</label>
                                 <div>
                                     <select class="form-control" name="row">
                                         <option value="10" @if(request('row') == '10')selected="selected"@endif>10</option>
