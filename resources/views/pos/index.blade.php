@@ -55,9 +55,9 @@
                                 <tr class="ligth ligth-data">
                                     <th>No.</th>
                                     <th>Photo</th>
-                                    <th>@sortablelink('product_name', 'name')</th>
-                                    <th>@sortablelink('selling_price', 'price')</th>
-                                    <th>Action</th>
+                                    <th>@sortablelink('product_name', 'nama')</th>
+                                    <th>@sortablelink('selling_price', 'harga')</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody class="ligth-body">
@@ -101,11 +101,11 @@
             <table class="table">
                 <thead>
                     <tr class="ligth">
-                        <th scope="col">Name</th>
-                        <th scope="col">QTY</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">SubTotal</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Order</th>
+                        <th scope="col">Harga</th>
+                        <th scope="col">Total Harga</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -135,13 +135,13 @@
 
             <div class="container row text-center">
                 <div class="form-group col-sm-6">
-                    <p class="h4 text-primary">Quantity: {{ Cart::count() }}</p>
+                    <p class="h4 text-primary">Total Order: {{ Cart::count() }}</p>
                 </div>
                 <div class="form-group col-sm-6">
-                    <p class="h4 text-primary">Subtotal: {{ Cart::subtotal() }}</p>
+                    <p class="h4 text-primary">Harga: {{ Cart::subtotal() }}</p>
                 </div>
                 <div class="form-group col-sm-6">
-                    <p class="h4 text-primary">Vat: {{ Cart::tax() }}</p>
+                    <p class="h4 text-primary">PPN: {{ Cart::tax() }}</p>
                 </div>
                 <div class="form-group col-sm-6">
                     <p class="h4 text-primary">Total: {{ Cart::total() }}</p>
@@ -155,7 +155,7 @@
 
                     <div class="col-md-12 mt-4">
                         <div class="d-flex flex-wrap align-items-center justify-content-center">
-                            <button type="submit" class="btn btn-success add-list mx-1">Create Invoice</button>
+                            <button type="submit" class="btn btn-success add-list mx-1">Buat Pesanan</button>
                         </div>
                     </div>
                 </form>

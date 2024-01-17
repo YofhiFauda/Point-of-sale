@@ -114,9 +114,9 @@
                                         <tr>
                                             <th class="text-center" scope="col">#</th>
                                             <th scope="col">Item</th>
-                                            <th class="text-center" scope="col">Quantity</th>
-                                            <th class="text-center" scope="col">Price</th>
-                                            <th class="text-center" scope="col">Totals</th>
+                                            <th class="text-center" scope="col">Order</th>
+                                            <th class="text-center" scope="col">Harga</th>
+                                            <th class="text-center" scope="col">Total Harga</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -152,7 +152,7 @@
                         <div class="offset-lg-8 col-lg-4">
                             <div class="or-detail rounded">
                                 <div class="p-3">
-                                    <h5 class="mb-3">Order Details</h5>
+                                    <h5 class="mb-3">Rincian Pesanan</h5>
                                     <div class="mb-2">
                                         <h6>Sub Total</h6>
                                         <p>${{ Cart::subtotal() }}</p>

@@ -57,13 +57,16 @@
                 <table class="table mb-0">
                     <thead class="bg-white text-uppercase">
                         <tr class="ligth ligth-data">
-                            <th>No.</th>
+                        <th>No.</th>
                             <th>Invoice No</th>
-                            <th>@sortablelink('customer.name', 'name')</th>
                             <th>@sortablelink('order_date', 'order date')</th>
+                            <th>Total Order</th>
+                            <th>Harga</th>
+                            <th>Harga + ppn</th>
+                            <th>Bayar</th>
+                            <th>Kembalian</th>
                             <th>Payment</th>
-                            <th>@sortablelink('pay')</th>
-                            <th>@sortablelink('due')</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -72,27 +75,18 @@
                         <tr>
                             <td>{{ (($orders->currentPage() * 10) - 10) + $loop->iteration  }}</td>
                             <td>{{ $order->invoice_no }}</td>
-                            <td>{{ $order->customer->name }}</td>
-                            <td>{{ Carbon\Carbon::parse($order->order_date)->format('Y m, d') }}</td>
+                            <td>{{ $order->order_date }}</td>
+                            <td>{{ $order->total_products }} pcs</td>
+                            <td>${{ number_format($order->sub_total, 2) }}</td>
+                            {{-- <td>${{ $order->pay }}</td> --}}
+                            <td>${{ number_format($order->total, 2) }}</td>
+                            <td>${{ number_format($order->pay, 2) }}</td>
+                            <td>${{ number_format($order->due, 2) }}</td>
                             <td>{{ $order->payment_status }}</td>
                             <td>
-                                <span class="btn btn-warning text-white">
-                                    {{-- ${{ $order->pay }} --}}
-                                    ${{ number_format($order->pay, 2) }}
-                                </span>
+                                <span class="badge badge-success">{{ $order->order_status }}</span>
                             </td>
-                            <td>
-                                <span class="btn btn-danger text-white">
-                                    {{-- ${{ $order->due }} --}}
-                                    ${{ number_format($order->due, 2) }}
-                                </span>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center list-action">
-                                    <a class="btn btn-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Details" href="{{ route('order.orderDetails', $order->id) }}">
-                                        Details
-                                    </a>
-                                    <button type="button" class="btn btn-primary-dark mr-2" data-toggle="modal" data-target=".bd-example-modal-lg" id="{{ $order->id }}" onclick="payDue(this.id)">Pay Due</button>
+                                <button type="button" class="btn btn-primary-dark mr-2" data-toggle="modal" data-target=".bd-example-modal-lg" id="{{ $order->id }}" onclick="payDue(this.id)">Pay Due</button>
                                 </div>
                             </td>
                         </tr>
