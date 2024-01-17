@@ -119,19 +119,16 @@
                                             </div>
                                             <div class="mb-2">
                                                 <h6>Sub Total</h6>
-                                                {{-- <p>${{ Cart::subtotal() }}</p> --}}
-                                                <p>${{ number_format(Cart::subtotal(), 2) }}</p>
+                                                <p>${{ Cart::subtotal() }}</p>
                                             </div>
                                             <div>
                                                 <h6>Vat (5%)</h6>
-                                                {{-- <p>${{ Cart::tax() }}</p> --}}
-                                                <p>${{ number_format(Cart::tax(), 2) }}</p>
+                                                <p>${{ Cart::tax() }}</p>
                                             </div>
                                         </div>
                                         <div class="ttl-amt py-2 px-3 d-flex justify-content-between align-items-center">
                                             <h6>Total</h6>
-                                            {{-- <h3 class="text-primary font-weight-700">${{ Cart::total() }}</h3> --}}
-                                            <h3 class="text-primary font-weight-700">${{ number_format(Cart::total(), 2) }}</h3>
+                                            <h3 class="text-primary font-weight-700">${{ Cart::total() }}</h3>
                                         </div>
                                     </div>
                                 </div>

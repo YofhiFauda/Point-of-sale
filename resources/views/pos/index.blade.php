@@ -18,104 +18,13 @@
             </div>
         </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <div class="col-lg-6 col-md-12 mb-3">
-=======
-        <div class="col-lg-4 col-md-12 mb-3">
->>>>>>> 07f4f05d0d1b65ceb0fa4ba9c56a53a9733c5656
-            <table class="table">
-                <thead>
-                    <tr class="ligth">
-                        <th scope="col">Name</th>
-                        <th scope="col">QTY</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">SubTotal</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($productItem as $item)
-                    <tr>
-                        <td>{{ $item->name }}</td>
-                        <td style="min-width: 140px;">
-                            <form action="{{ route('pos.updateCart', $item->rowId) }}" method="POST">
-                                @csrf
-                                <div class="input-group">
-                                    <input type="number" class="form-control" name="qty" required value="{{ old('qty', $item->qty) }}">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-success border-none" data-toggle="tooltip" data-placement="top" title="" data-original-title="Sumbit"><i class="fas fa-check"></i></button>
-                                    </div>
-                                </div>
-                            </form>
-                        </td>
-                        <td>${{ number_format($item->price, 2) }}</td>
-                        <td>${{ number_format($item->subtotal, 2) }}</td>
-                        <td>
-                            <a href="{{ route('pos.deleteCart', $item->rowId) }}" class="btn btn-danger border-none" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa-solid fa-trash mr-0"></i></a>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-
-            <div class="container row text-center">
-                <div class="form-group col-sm-3">
-                    <p class="h5 text-primary">Quantity: {{ Cart::count() }}</p>
-                </div>
-                <div class="form-group col-sm-3">
-                    {{-- <p class="h4 text-primary">Subtotal: {{ Cart::subtotal() }}</p> --}}
-                    <p class="h5 text-primary">Subtotal: ${{ number_format( Cart::subtotal(), 2) }}</p>
-                </div>
-                <div class="form-group col-sm-3">
-                    <p class="h5 text-primary">Vat: {{ Cart::tax() }}</p>
-                </div>
-                <div class="form-group col-sm-3">
-                    <p class="h5 text-primary">Total: {{ Cart::total() }}</p>
-                </div>
-            </div>
-
-            <form action="{{ route('pos.createInvoice') }}" method="POST">
-                @csrf
-                <div class="row mt-3">
-                    <div class="col-md-12">
-                        <div class="input-group">
-                            <select class="form-control" id="customer_id" name="customer_id">
-                                <option selected="" disabled="">-- Select Customer --</option>
-                                @foreach ($customers as $customer)
-                                    <option value="{{ $customer->id }}">{{ $customer->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        @error('customer_id')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
-                    <div class="col-md-12 mt-4">
-                        <div class="d-flex flex-wrap align-items-center justify-content-center">
-                            <a href="{{ route('customers.create') }}" class="btn btn-primary add-list mx-1">Add Customer</a>
-                            <button type="submit" class="btn btn-success add-list mx-1">Create Invoice</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 7bd455404da2d33de54f50242e1840f0e9b8482b
         <div class="col-lg-6 col-md-12">
-=======
-        <div class="col-lg-7 col-md-12 ">
->>>>>>> 07f4f05d0d1b65ceb0fa4ba9c56a53a9733c5656
             <div class="card card-block card-stretch card-height">
                 <div class="card-body">
                     <form action="#" method="get">
                         <div class="d-flex flex-wrap align-items-center justify-content-between">
                             <div class="form-group row">
-                                <label for="row" class="align-self-center mx-4">Row:</label>
+                                <label for="row" class="align-self-center mx-2">Row:</label>
                                 <div>
                                     <select class="form-control" name="row">
                                         <option value="10" @if(request('row') == '10')selected="selected"@endif>10</option>
@@ -138,6 +47,8 @@
                             </div>
                         </div>
                     </form>
+
+
                     <div class="table-responsive rounded mb-3 border-none">
                         <table class="table mb-0">
                             <thead class="bg-white text-uppercase">
@@ -157,8 +68,7 @@
                                         <img class="avatar-60 rounded" src="{{ $product->product_image ? asset('storage/products/'.$product->product_image) : asset('assets/images/product/default.webp') }}">
                                     </td>
                                     <td>{{ $product->product_name }}</td>
-                                    {{-- <td>${{ $product->selling_price }}</td> --}}
-                                    <td>${{ number_format($product->selling_price, 2) }}</td>
+                                    <td>{{ $product->selling_price }}</td>
                                     <td>
                                         <form action="{{ route('pos.addCart') }}" method="POST"  style="margin-bottom: 5px">
                                             @csrf
