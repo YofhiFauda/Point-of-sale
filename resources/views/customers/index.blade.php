@@ -1,4 +1,4 @@
-@extends('dashboard.body.main')
+{{-- @extends('dashboard.body.main')
 
 @section('container')
 <div class="container-fluid">
@@ -106,4 +106,4 @@
     <!-- Page end  -->
 </div>
 
-@endsection
+@endsection --}}

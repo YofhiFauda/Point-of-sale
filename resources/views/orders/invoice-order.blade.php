@@ -53,13 +53,6 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-6 mb-50">
-                                    <h4 class="inv-title-1">Customer</h4>
-                                    <p class="inv-from-1">{{ $order->customer->name }}</p>
-                                    <p class="inv-from-1">{{ $order->customer->email }}</p>
-                                    <p class="inv-from-1">{{ $order->customer->phone }}</p>
-                                    <p class="inv-from-2">{{ $order->customer->address }}</p>
-                                </div>
-                                <div class="col-sm-6 text-end mb-50">
                                     <h4 class="inv-title-1">Details</h4>
                                     <p class="inv-from-1">Payment Status: {{ $order->payment_status }}</p>
                                     {{-- <p class="inv-from-1">Total Pay: ${{ $order->pay }}</p> --}}
@@ -67,6 +60,13 @@
                                     {{-- <p class="inv-from-1">Due: ${{ $order->due }}</p> --}}
                                     <p class="inv-from-1">Due: ${{ number_format($order->due, 2) }}</p>
                                 </div>
+                                {{-- <div class="col-sm-6 text-end mb-50">
+                                    <h4 class="inv-title-1">Customer</h4>
+                                    <p class="inv-from-1">{{ $order->customer->name }}</p>
+                                    <p class="inv-from-1">{{ $order->customer->email }}</p>
+                                    <p class="inv-from-1">{{ $order->customer->phone }}</p>
+                                    <p class="inv-from-2">{{ $order->customer->address }}</p>
+                                </div> --}}
                             </div>
                         </div>
                         <div class="order-summary">

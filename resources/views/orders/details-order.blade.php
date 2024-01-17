@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="row align-items-center">
-                        <div class="form-group col-md-12">
+                        {{-- <div class="form-group col-md-12">
                             <label>Customer Name</label>
                             <input type="text" class="form-control bg-white" value="{{ $order->customer->name }}" readonly>
                         </div>
@@ -36,7 +36,7 @@
                         <div class="form-group col-md-6">
                             <label>Customer Phone</label>
                             <input type="text" class="form-control bg-white" value="{{ $order->customer->phone }}" readonly>
-                        </div>
+                        </div> --}}
                         <div class="form-group col-md-6">
                             <label>Order Date</label>
                             <input type="text" class="form-control bg-white" value="{{ $order->order_date }}" readonly>

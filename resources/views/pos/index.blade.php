@@ -151,7 +151,6 @@
             <form action="{{ route('pos.createInvoice') }}" method="POST">
                     @csrf
                     <input type="hidden" name="customer_id" value="{{ $customers->first()->id }}">
-                    <!-- Menambahkan input tersembunyi untuk ID pelanggan -->
 
                     <div class="col-md-12 mt-4">
                         <div class="d-flex flex-wrap align-items-center justify-content-center">
