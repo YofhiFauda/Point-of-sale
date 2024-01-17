@@ -104,6 +104,18 @@
             </div>
         </div>
 
+        <div class="col-md-1.5">
+            <div class="mb-3">
+                <label for="filterOption">Sortir :</label>
+                <select class="form-control" id="filterOption" onchange="filterOrders(this.value)">
+                    <option value="all">Semua</option>
+                    <option value="today">Hari ini</option>
+                    <option value="this_week">Mingguan</option>
+                    <option value="this_month">Bulanan</option>
+                </select>
+            </div>
+        </div>
+
         <div class="col-lg-12">
             <div class="table-responsive rounded mb-3">
                 <table class="table mb-0">
@@ -213,9 +225,29 @@
     </div>
     <!-- Page end  -->
 </div>
-@endsection
+@endsection 
 
 @section('specificpagescripts')
+{{-- sortir --}}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get the current filter value from the URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const filterOption = urlParams.get('filter');
+
+        // Set the default value of the dropdown based on the filter parameter
+        const dropdown = document.getElementById('filterOption');
+        if (dropdown) {
+            dropdown.value = filterOption || 'all';
+        }
+    });
+
+    function filterOrders(option) {
+        // Redirect to the same page with the selected filter option
+        window.location.href = "?filter=" + option;
+    }
+</script>
+
 <!-- Table Treeview JavaScript -->
 <script src="{{ asset('assets/js/table-treeview.js') }}"></script>
 <!-- Chart Custom JavaScript -->
