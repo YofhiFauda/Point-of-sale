@@ -18,6 +18,7 @@
             </div>
         </div>
 
+<<<<<<< HEAD
         <div class="col-lg-6 col-md-12 mb-3">
             <table class="table">
                 <thead>
@@ -98,6 +99,8 @@
             </form>
         </div>
 
+=======
+>>>>>>> 7bd455404da2d33de54f50242e1840f0e9b8482b
         <div class="col-lg-6 col-md-12">
             <div class="card card-block card-stretch card-height">
                 <div class="card-body">
@@ -173,6 +176,71 @@
                     </div>
                     {{ $products->links() }}
                 </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12 mb-3">
+            <table class="table">
+                <thead>
+                    <tr class="ligth">
+                        <th scope="col">Name</th>
+                        <th scope="col">QTY</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">SubTotal</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($productItem as $item)
+                    <tr>
+                        <td>{{ $item->name }}</td>
+                        <td style="min-width: 140px;">
+                            <form action="{{ route('pos.updateCart', $item->rowId) }}" method="POST">
+                                @csrf
+                                <div class="input-group">
+                                    <input type="number" class="form-control" name="qty" required value="{{ old('qty', $item->qty) }}" min=0>
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-success border-none" data-toggle="tooltip" data-placement="top" title="" data-original-title="Sumbit"><i class="fas fa-check"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </td>
+                        <td>{{ $item->price }}</td>
+                        <td>{{ $item->subtotal }}</td>
+                        <td>
+                            <a href="{{ route('pos.deleteCart', $item->rowId) }}" class="btn btn-danger border-none" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa-solid fa-trash mr-0"></i></a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+            <div class="container row text-center">
+                <div class="form-group col-sm-6">
+                    <p class="h4 text-primary">Quantity: {{ Cart::count() }}</p>
+                </div>
+                <div class="form-group col-sm-6">
+                    <p class="h4 text-primary">Subtotal: {{ Cart::subtotal() }}</p>
+                </div>
+                <div class="form-group col-sm-6">
+                    <p class="h4 text-primary">Vat: {{ Cart::tax() }}</p>
+                </div>
+                <div class="form-group col-sm-6">
+                    <p class="h4 text-primary">Total: {{ Cart::total() }}</p>
+                </div>
+            </div>
+
+            <form action="{{ route('pos.createInvoice') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="customer_id" value="{{ $customers->first()->id }}">
+                    <!-- Menambahkan input tersembunyi untuk ID pelanggan -->
+
+                    <div class="col-md-12 mt-4">
+                        <div class="d-flex flex-wrap align-items-center justify-content-center">
+                            <button type="submit" class="btn btn-success add-list mx-1">Create Invoice</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

@@ -73,7 +73,6 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <img src="{{ asset('assets/images/logo.png') }}" class="logo-invoice img-fluid mb-3">
-                            <h5 class="mb-3">Hello, {{ $customer->name }}</h5>
                         </div>
                     </div>
 

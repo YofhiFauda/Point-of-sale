@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>POS Dash</title>
 
-        <!-- Favicon -->
         <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}"/>
         <link rel="stylesheet" href="{{ asset('assets/css/backend-plugin.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/backend.css?v=1.0.0') }}">
@@ -14,7 +13,6 @@
     </head>
 <body>
 
-    <!-- Wrapper Start -->
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -29,7 +27,6 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <img src="{{ asset('assets/images/logo.png') }}" class="logo-invoice img-fluid mb-3">
-                                    <h5 class="mb-3">Hello, {{ $customer->name }}</h5>
                                 </div>
                             </div>
                             <div class="row">
