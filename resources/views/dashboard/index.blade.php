@@ -13,17 +13,17 @@
             </div>
         @endif
         </div>
-        <div class="col-lg-4">
+        {{-- <div class="col-lg-4">
             <div class="card card-transparent card-block card-stretch card-height border-none">
                 <div class="card-body p-0 mt-lg-2 mt-0">
                     <h3 class="mb-3">Hi {{ auth()->user()->name }}, Good Morning</h3>
                     <p class="mb-0 mr-4">Your dashboard gives you views of key performance or business process.</p>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-8">
+        </div> --}}
+        <div class="col-lg-12">
             <div class="row">
-                <div class="col-lg-4 col-md-4">
+                <div class="col-lg-3 col-md-4">
                     <div class="card card-block card-stretch card-height">
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-4 card-total-sale">
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4">
+                <div class="col-lg-3 col-md-4">
                     <div class="card card-block card-stretch card-height">
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-4 card-total-sale">
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4">
+                <div class="col-lg-3 col-md-4">
                     <div class="card card-block card-stretch card-height">
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-4 card-total-sale">
@@ -82,58 +82,60 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="card card-block card-stretch card-height">
-                <div class="card-header d-flex justify-content-between">
-                    <div class="header-title">
-                        <h4 class="card-title">Overview</h4>
-                    </div>
-                    <div class="card-header-toolbar d-flex align-items-center">
-                        <div class="dropdown">
-                            <span class="dropdown-toggle dropdown-bg btn" id="dropdownMenuButton001"
-                                data-toggle="dropdown">
-                                This Month<i class="ri-arrow-down-s-line ml-1"></i>
-                            </span>
-                            <div class="dropdown-menu dropdown-menu-right shadow-none"
-                                aria-labelledby="dropdownMenuButton001">
-                                <a class="dropdown-item" href="#">Year</a>
-                                <a class="dropdown-item" href="#">Month</a>
-                                <a class="dropdown-item" href="#">Week</a>
+                <div class="col-lg-3 col-md-4">
+                    <div class="card card-block card-stretch card-height">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-4 card-total-sale">
+                                <div class="icon iq-icon-box-2 bg-danger-light">
+                                    <img src="../assets/images/product/2.png" class="img-fluid" alt="image">
+                                </div>
+                                <div>
+                                    <p class="mb-2"> Pending Order</p>
+                                    <h4>{{ count($order_status) }}</h4>
+                                </div>
+                            </div>
+                            <div class="iq-progress-bar mt-2">
+                                <span class="bg-danger iq-progress progress-1" data-percent="70">
+                                </span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <div id="layout1-chart1"></div>
-                </div>
             </div>
         </div>
-        <div class="col-lg-6">
-            <div class="card card-block card-stretch card-height">
-                <div class="card-header d-flex align-items-center justify-content-between">
-                    <div class="header-title">
-                        <h4 class="card-title">Revenue Vs Cost</h4>
-                    </div>
-                    <div class="card-header-toolbar d-flex align-items-center">
-                        <div class="dropdown">
-                            <span class="dropdown-toggle dropdown-bg btn" id="dropdownMenuButton002"
-                                data-toggle="dropdown">
-                                This Month<i class="ri-arrow-down-s-line ml-1"></i>
-                            </span>
-                            <div class="dropdown-menu dropdown-menu-right shadow-none"
-                                aria-labelledby="dropdownMenuButton002">
-                                <a class="dropdown-item" href="#">Yearly</a>
-                                <a class="dropdown-item" href="#">Monthly</a>
-                                <a class="dropdown-item" href="#">Weekly</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div id="layout1-chart-2" style="min-height: 360px;"></div>
-                </div>
+
+        <div class="col-lg-12">
+            <div class="table-responsive rounded mb-3">
+                <table class="table mb-0">
+                    <thead class="bg-white text-uppercase">
+                        <tr class="ligth ligth-data">
+                            <th>No.</th>
+                            <th>Photo</th>
+                            <th>Product Name</th>
+                            <th>Product Code</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total(+vat)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="ligth-body">
+                        @foreach ($orderDetails as $item)
+                        <tr>
+                            <td>{{ $loop->iteration  }}</td>
+                            <td>
+                                <img class="avatar-60 rounded" src="{{ $item->product->product_image ? asset('storage/products/'.$item->product_image) : asset('storage/products/default.webp') }}">
+                            </td>
+                            <td>{{ $item->product->product_name }}</td>
+                            <td>{{ $item->product->product_code }}</td>
+                            <td>{{ $item->quantity }}</td>
+                            {{-- <td>${{ $item->unitcost }}</td>
+                            <td>${{ $item->total }}</td> --}}
+                            <td>${{ number_format($item->unitcost, 2) }}</td>
+                            <td>${{ number_format($item->total, 2) }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -191,6 +193,7 @@
                 </div>
             </div>
             @foreach ($new_products as $product)
+
             <div class="card card-block card-stretch card-height-helf">
                 <div class="card-body card-item-right">
                     <div class="d-flex align-items-top">
