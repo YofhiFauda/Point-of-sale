@@ -104,15 +104,19 @@
             </div>
         </div>
 
-        <div class="col-md-1.5">
-            <div class="mb-3">
-                <label for="filterOption">Sortir :</label>
-                <select class="form-control" id="filterOption" onchange="filterOrders(this.value)">
-                    <option value="all">Semua</option>
-                    <option value="today">Hari ini</option>
-                    <option value="this_week">Mingguan</option>
-                    <option value="this_month">Bulanan</option>
-                </select>
+        <div class="col-lg-12">
+            <div class="d-flex flex-wrap align-items-center justify-content-between">
+                <div class="form-group row">
+                    <label for="filterOption" class="col-sm- align-self-center">Sortir:</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" id="filterOption" onchange="filterOrders(this.value)">
+                            <option value="all">Semua</option>
+                            <option value="today">Hari ini</option>
+                            <option value="this_week">Mingguan</option>
+                            <option value="this_month">Bulanan</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -123,11 +127,11 @@
                         <tr class="ligth ligth-data">
                             <th>No.</th>
                             <th>Photo</th>
-                            <th>Product Name</th>
-                            <th>Product Code</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Total(+vat)</th>
+                            <th>Nama Produk</th>
+                            <th>Kode Produk</th>
+                            <th>Order</th>
+                            <th>Harga</th>
+                            <th>Total(+PPN)</th>
                         </tr>
                     </thead>
                     <tbody class="ligth-body">
@@ -155,19 +159,19 @@
             <div class="card card-block card-stretch card-height">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <div class="header-title">
-                        <h4 class="card-title">Top Products</h4>
+                        <h4 class="card-title">Produk Unggulan</h4>
                     </div>
                     <div class="card-header-toolbar d-flex align-items-center">
                         <div class="dropdown">
                             <span class="dropdown-toggle dropdown-bg btn" id="dropdownMenuButton006"
                                 data-toggle="dropdown">
-                                This Month<i class="ri-arrow-down-s-line ml-1"></i>
+                                Bulan Ini<i class="ri-arrow-down-s-line ml-1"></i>
                             </span>
                             <div class="dropdown-menu dropdown-menu-right shadow-none"
                                 aria-labelledby="dropdownMenuButton006">
-                                <a class="dropdown-item" href="#">Year</a>
-                                <a class="dropdown-item" href="#">Month</a>
-                                <a class="dropdown-item" href="#">Week</a>
+                                <a class="dropdown-item" href="#">Tahun</a>
+                                <a class="dropdown-item" href="#">Bulan</a>
+                                <a class="dropdown-item" href="#">Minggu</a>
                             </div>
                         </div>
                     </div>
@@ -197,10 +201,10 @@
             <div class="card card-transparent card-block card-stretch mb-4">
                 <div class="card-header d-flex align-items-center justify-content-between p-0">
                     <div class="header-title">
-                        <h4 class="card-title mb-0">New Products</h4>
+                        <h4 class="card-title mb-0">Produk Baru</h4>
                     </div>
                     <div class="card-header-toolbar d-flex align-items-center">
-                        <div><a href="#" class="btn btn-primary view-btn font-size-14">View All</a></div>
+                        <div><a href="#" class="btn btn-primary view-btn font-size-14">Lihat Semua</a></div>
                     </div>
                 </div>
             </div>

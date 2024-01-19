@@ -22,7 +22,7 @@
                         <!-- begin: Input Data -->
                         <div class=" row align-items-center mb-2">
                             <div class="form-group col-md-6">
-                                <label for="role_id">Role Name</label>
+                                <label for="role_id">Nama Role</label>
                                 <h4>{{ $role->name }}</h4>
                                 {{-- <input type="text" class="form-control" value="{{ $role->name }}" readonly> --}}
                             </div>
@@ -30,7 +30,7 @@
 
                         <div class="row align-items-center">
                             <div class="form-group col-md-6">
-                                <label for="name">Permission Name <span class="text-danger">*</span></label>
+                                <label for="name">Nama Permission <span class="text-danger">*</span></label>
                             </div>
                         </div>
 
@@ -39,7 +39,7 @@
                             <div class="form-group col-md-3">
                                 <div class="custom-control custom-checkbox custom-control-inline">
                                     <input type="checkbox" class="custom-control-input" id="check-all">
-                                    <label class="custom-control-label" for="check-all">Check All</label>
+                                    <label class="custom-control-label" for="check-all">Cek Semua</label>
                                 </div>
                             </div>
                         </div>
@@ -96,8 +96,8 @@
 
                         <!-- end: Input Data -->
                         <div class="mt-2">
-                            <button type="submit" class="btn btn-primary mr-2">Save</button>
-                            <a class="btn bg-danger" href="{{ route('rolePermission.index') }}">Cancel</a>
+                            <button type="submit" class="btn btn-primary mr-2">Simpan</button>
+                            <a class="btn bg-danger" href="{{ route('rolePermission.index') }}">Batal</a>
                         </div>
                     </form>
                 </div>

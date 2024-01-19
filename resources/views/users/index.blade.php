@@ -14,11 +14,11 @@
             @endif
             <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
                 <div>
-                    <h4 class="mb-3">User List</h4>
+                    <h4 class="mb-3">Daftar User</h4>
                 </div>
                 <div>
-                <a href="{{ route('users.create') }}" class="btn btn-primary add-list"><i class="fa-solid fa-plus mr-3"></i>Create User</a>
-                <a href="{{ route('users.index') }}" class="btn btn-danger add-list"><i class="fa-solid fa-trash mr-3"></i>Clear Search</a>
+                <a href="{{ route('users.create') }}" class="btn btn-primary add-list"><i class="fa-solid fa-plus mr-3"></i>Buat User</a>
+                <a href="{{ route('users.index') }}" class="btn btn-danger add-list"><i class="fa-solid fa-trash mr-3"></i>Hapus Pencarian</a>
                 </div>
             </div>
         </div>
@@ -39,10 +39,10 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="control-label col-sm-3 align-self-center" for="search">Search:</label>
+                        <label class="control-label col-sm-3 align-self-center" for="search">Pencarian:</label>
                         <div class="col-sm-8">
                             <div class="input-group">
-                                <input type="text" id="search" class="form-control" name="search" placeholder="Search user" value="{{ request('search') }}">
+                                <input type="text" id="search" class="form-control" name="search" placeholder="Cari user" value="{{ request('search') }}">
                                 <div class="input-group-append">
                                     <button type="submit" class="input-group-text bg-primary"><i class="fa-solid fa-magnifying-glass font-size-20"></i></button>
                                 </div>
@@ -60,11 +60,11 @@
                         <tr class="ligth ligth-data">
                             <th>No.</th>
                             <th>Photo</th>
-                            <th>@sortablelink('name')</th>
+                            <th>@sortablelink('nama')</th>
                             <th>@sortablelink('username')</th>
                             <th>@sortablelink('email')</th>
                             <th>Role</th>
-                            <th>Action</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="ligth-body">
@@ -87,12 +87,12 @@
                                     @method('delete')
                                     @csrf
                                     <div class="d-flex align-items-center list-action">
-                                        {{-- <a class="btn btn-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"
+                                        {{-- <a class="btn btn-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Lihat"
                                             href="{{ route('users.show', $item->username) }}"><i class="ri-eye-line mr-0"></i>
                                         </a> --}}
                                         <a class="btn btn-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" href="{{ route('users.edit', $item->username) }}"><i class="ri-pencil-line mr-0"></i>
                                         </a>
-                                        <button type="submit" class="btn btn-warning mr-2 border-none" onclick="return confirm('Are you sure you want to delete this record?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="ri-delete-bin-line mr-0"></i></button>
+                                        <button type="submit" class="btn btn-warning mr-2 border-none" onclick="return confirm('Are you sure you want to delete this record?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Hapus"><i class="ri-delete-bin-line mr-0"></i></button>
                                     </div>
                                 </form>
                             </td>

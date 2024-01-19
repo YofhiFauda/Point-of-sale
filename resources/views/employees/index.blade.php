@@ -14,13 +14,13 @@
             @endif
             <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
                 <div>
-                    <h4 class="mb-3">Employee List</h4>
+                    <h4 class="mb-3">Daftar Karyawan</h4>
                     <p class="mb-0">A employee dashboard lets you easily gather and visualize employee data from optimizing <br>
                         the employee experience, ensuring employee retention. </p>
                 </div>
                 <div>
-                <a href="{{ route('employees.create') }}" class="btn btn-primary add-list"><i class="fa-solid fa-plus mr-3"></i>Add Employee</a>
-                <a href="{{ route('employees.index') }}" class="btn btn-danger add-list"><i class="fa-solid fa-trash mr-3"></i>Clear Search</a>
+                <a href="{{ route('employees.create') }}" class="btn btn-primary add-list"><i class="fa-solid fa-plus mr-3"></i>Tambah Karyawan</a>
+                <a href="{{ route('employees.index') }}" class="btn btn-danger add-list"><i class="fa-solid fa-trash mr-3"></i>Hapus Pencarian</a>
                 </div>
             </div>
         </div>
@@ -41,15 +41,15 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="control-label col-sm-3 align-self-center" for="search">Search:</label>
+                        <label class="control-label col-sm-3 align-self-center" for="search">Pencarian:</label>
                         <div class="col-sm-8">
                             <div class="input-group">
-                                <input type="text" id="search" class="form-control" name="search" placeholder="Search employee" value="{{ request('search') }}">
+                                <input type="text" id="search" class="form-control" name="search" placeholder="Cari Karyawan" value="{{ request('search') }}">
                                 <div class="input-group-append">
                                     <button type="submit" class="input-group-text bg-primary"><i class="fa-solid fa-magnifying-glass font-size-20"></i></button>
                                 </div>
                             </div>
-                            {{-- <input id="search" type="text" class="form-control" name="search" placeholder="Search employee"> --}}
+                            {{-- <input id="search" type="text" class="form-control" name="search" placeholder="Cari Karyawan"> --}}
                         </div>
                     </div>
                 </div>
@@ -63,11 +63,11 @@
                         <tr class="ligth ligth-data">
                             <th>No.</th>
                             <th>Photo</th>
-                            <th>@sortablelink('name')</th>
+                            <th>@sortablelink('nama')</th>
                             <th>@sortablelink('email')</th>
-                            <th>@sortablelink('phone')</th>
-                            <th>@sortablelink('city')</th>
-                            <th>Action</th>
+                            <th>@sortablelink('No handphone')</th>
+                            <th>@sortablelink('kota')</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="ligth-body">
@@ -83,7 +83,7 @@
                             <td>{{ $employee->city }}</td>
                             <td>
                                 <div class="d-flex align-items-center list-action">
-                                    <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"
+                                    <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Lihat"
                                         href="{{ route('employees.show', $employee->id) }}"><i class="ri-eye-line mr-0"></i>
                                     </a>
                                     <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"
@@ -92,7 +92,7 @@
                                     <form action="{{ route('employees.destroy', $employee->id) }}" method="POST" style="margin-bottom: 5px">
                                         @method('delete')
                                         @csrf
-                                        <button type="submit" class="badge bg-warning mr-2 border-none" onclick="return confirm('Are you sure you want to delete this record?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="ri-delete-bin-line mr-0"></i></button>
+                                        <button type="submit" class="badge bg-warning mr-2 border-none" onclick="return confirm('Are you sure you want to delete this record?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Hapus"><i class="ri-delete-bin-line mr-0"></i></button>
                                     </form>
                                 </div>
                             </td>

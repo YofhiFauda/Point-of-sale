@@ -52,7 +52,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <div class="header-title">
-                        <h4 class="card-title">Create Permission</h4>
+                        <h4 class="card-title">Buat Permission</h4>
                     </div>
                 </div>
 
@@ -62,7 +62,7 @@
                         <!-- begin: Input Data -->
                         <div class=" row align-items-center">
                             <div class="form-group col-md-6">
-                                <label for="name">Permission Name <span class="text-danger">*</span></label>
+                                <label for="name">Nama Permission <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required autocomplete="off">
                                 @error('name')
                                 <div class="invalid-feedback">
@@ -72,9 +72,9 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="group_name">Group Name <span class="text-danger">*</span></label>
+                                <label for="group_name">Nama Group <span class="text-danger">*</span></label>
                                 <select class="form-control @error('group_name') is-invalid @enderror" name="group_name" required>
-                                    <option selected="" disabled>-- Select Group --</option>
+                                    <option selected="" disabled>-- Pilih Group --</option>
                                     @foreach ($group_names as $item)
                                         <option value="{{ $item['slug'] }}">{{ $item['name'] }}</option>
                                     @endforeach
@@ -88,8 +88,8 @@
                         </div>
                         <!-- end: Input Data -->
                         <div class="mt-2">
-                            <button type="submit" class="btn btn-primary mr-2">Save</button>
-                            <a class="btn bg-danger" href="{{ route('permission.index') }}">Cancel</a>
+                            <button type="submit" class="btn btn-primary mr-2">Simpan</button>
+                            <a class="btn bg-danger" href="{{ route('permission.index') }}">Batal</a>
                         </div>
                     </form>
                 </div>

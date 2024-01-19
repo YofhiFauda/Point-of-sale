@@ -35,7 +35,7 @@
                 <li>
                     <a href="#orders" class="collapsed" data-toggle="collapse" aria-expanded="false">
                         <i class="fa-solid fa-basket-shopping"></i>
-                        <span class="ml-3">Orders</span>
+                        <span class="ml-3">Pesanan</span>
                         <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="10 15 15 20 20 15"></polyline><path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
                         </svg>
@@ -44,22 +44,22 @@
 
                         <li class="{{ Request::is('orders/pending*') ? 'active' : '' }}">
                             <a href="{{ route('order.pendingOrders') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>Pending Orders</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Pesanan Tertunda</span>
                             </a>
                         </li>
                         <li class="{{ Request::is('orders/complete*') ? 'active' : '' }}">
                             <a href="{{ route('order.completeOrders') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>Complete Orders</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Pesanan Selesai</span>
                             </a>
                         </li>
                         <li class="{{ Request::is('pending/due*') ? 'active' : '' }}">
                             <a href="{{ route('order.pendingDue') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>Pending Due</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Pembayaran Tertunda</span>
                             </a>
                         </li>
                         <li class="{{ Request::is(['stock*']) ? 'active' : '' }}">
                             <a href="{{ route('order.stockManage') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>Stock Management</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>persediaan Barang</span>
                             </a>
                         </li>
                     </ul>
@@ -70,7 +70,7 @@
                 <li>
                     <a href="#products" class="collapsed" data-toggle="collapse" aria-expanded="false">
                         <i class="fa-solid fa-boxes-stacked"></i>
-                        <span class="ml-3">Products</span>
+                        <span class="ml-3">Produk</span>
                         <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="10 15 15 20 20 15"></polyline><path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
                         </svg>
@@ -78,17 +78,17 @@
                     <ul id="products" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
                         <li class="{{ Request::is(['products']) ? 'active' : '' }}">
                             <a href="{{ route('products.index') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>Products</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Produk</span>
                             </a>
                         </li>
                         <li class="{{ Request::is(['products/create']) ? 'active' : '' }}">
                             <a href="{{ route('products.create') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>Add Product</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Tambah Produk</span>
                             </a>
                         </li>
                         <li class="{{ Request::is(['categories*']) ? 'active' : '' }}">
                             <a href="{{ route('categories.index') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>Categories</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Kategori</span>
                             </a>
                         </li>
                     </ul>
@@ -101,20 +101,11 @@
                 <li class="{{ Request::is('employees*') ? 'active' : '' }}">
                     <a href="{{ route('employees.index') }}" class="svg-icon">
                         <i class="fa-solid fa-users"></i>
-                        <span class="ml-3">Employees</span>
+                        <span class="ml-3">Karyawan</span>
                     </a>
                 </li>
                 @endif
-
-                {{-- @if (auth()->user()->can('customer.menu'))
-                <li class="{{ Request::is('customers*') ? 'active' : '' }}">
-                    <a href="{{ route('customers.index') }}" class="svg-icon">
-                        <i class="fa-solid fa-users"></i>
-                        <span class="ml-3">Customers</span>
-                    </a>
-                </li>
-                @endif --}}
-
+                
                 @if (auth()->user()->can('supplier.menu'))
                 <li class="{{ Request::is('suppliers*') ? 'active' : '' }}">
                     <a href="{{ route('suppliers.index') }}" class="svg-icon">

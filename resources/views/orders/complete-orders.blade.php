@@ -15,15 +15,15 @@
             @endif
             <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
                 <div>
-                    <h4 class="mb-3">Complete Order List</h4>
+                    <h4 class="mb-3">Daftar Pesanan Selesai</h4>
                 </div>
                 <div>
                     <a href="{{ route('order.exportData') }}" class="btn btn-success add-list">Export</a>
-                    {{-- <button type="submit" class="btn btn-danger" name="delete_all" value="1" onclick="return confirm('Are you sure you want to delete all transactions?')">Delete All Transactions</button> --}}
+                    {{-- <button type="submit" class="btn btn-danger" name="delete_all" value="1" onclick="return confirm('Are you sure you want to delete all transactions?')">Hapus Semua Transaksi</button> --}}
                     <form action="{{ route('order.destroyAll') }}" method="post" class="d-inline">
                         @csrf
-                        @method('DELETE')
-                         <button type="submit" class="btn btn-danger" name="delete_all" value="1" onclick="return confirm('Are you sure you want to delete all transactions?')">Delete All Transactions</button>
+                        @method('HAPUS')
+                         <button type="submit" class="btn btn-danger" name="delete_all" value="1" onclick="return confirm('Are you sure you want to delete all transactions?')">Hapus Semua Transaksi</button>
                     </form>
                 </div>
             </div>
@@ -46,10 +46,10 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="control-label col-sm-3 align-self-center" for="search">Search:</label>
+                        <label class="control-label col-sm-3 align-self-center" for="search">Pencarian:</label>
                         <div class="col-sm-8">
                             <div class="input-group">
-                                <input type="text" id="search" class="form-control" name="search" placeholder="Search order" value="{{ request('search') }}">
+                                <input type="text" id="search" class="form-control" name="search" placeholder="Cari Pesanan" value="{{ request('search') }}">
                                 <div class="input-group-append">
                                     <button type="submit" class="input-group-text bg-primary"><i class="fa-solid fa-magnifying-glass font-size-20"></i></button>
                                     <a href="{{ route('order.completeOrders') }}" class="input-group-text bg-danger"><i class="fa-solid fa-trash"></i></a>
@@ -65,19 +65,19 @@
             <form action="{{ route('order.completeOrders') }}" method="get">
                 <div class="d-flex flex-wrap align-items-center justify-content-end">
                     <div class="form-group row">
-                        <label class="control-label align-self-center" for="start_date">Start Date:</label>
-                        <div class="col-sm-4">
+                        <label class="control-label align-self-center" for="start_date">Tanggal Mulai:</label>
+                        <div class="col-sm-3">
                             <input type="date" id="start_date" class="form-control" name="start_date" value="{{ request('start_date') }}">
                         </div>
-                        <label class="control-label align-self-center" for="end_date">End Date:</label>
-                        <div class="col-sm-4">
+                        <label class="control-label align-self-center" for="end_date">Tanggal selesai:</label>
+                        <div class="col-sm-3">
                             <input type="date" id="end_date" class="form-control" name="end_date" value="{{ request('end_date') }}">
                         </div>
                     </div>
             
                     <div class="form-group row">
                         <div class="col-sm-9">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Kirim</button>
                         </div>
                     </div>
                 </div>
@@ -90,16 +90,16 @@
                     <thead class="bg-white text-uppercase">
                         <tr class="ligth ligth-data">
                             <th>No.</th>
-                            <th>Invoice No</th>
-                            <th>@sortablelink('order_date', 'order date')</th>
-                            <th>Total Order</th>
+                            <th>No Pesanan</th>
+                            <th>@sortablelink('order_date', 'Tanggal Pesanan')</th>
+                            <th>Total Pesanan</th>
                             <th>Harga</th>
-                            <th>Harga + ppn</th>
+                            <th>Harga + PPN</th>
                             <th>Bayar</th>
                             <th>Kembalian</th>
-                            <th>Payment</th>
+                            <th>Pembayaran</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="ligth-body">
@@ -120,14 +120,14 @@
                             </td>
                             <td>
                                 <form action="{{ route('order.destroy', $order->id) }}" method="POST" style="margin-bottom: 5px">
-                                    @method('delete')
+                                    @method('Hapus')
                                     @csrf
                                 <div class="d-flex align-items-center list-action">
                                     <a class="btn btn-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Details" href="{{ route('order.orderDetails', $order->id) }}">
-                                        Details
+                                        Rincian
                                     </a>
                                     <a class="btn btn-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Print" href="{{ route('order.invoiceDownload', $order->id) }}">
-                                        Print
+                                        Cetak
                                     </a>
                                     <button type="submit" class="btn btn-warning mr-2 border-none" onclick="return confirm('Are you sure you want to delete this record?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="ri-delete-bin-line mr-0"></i></button>
                                 </div>

@@ -22,7 +22,7 @@
             @endif
             <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
                 <div>
-                    <h4 class="mb-3">Stock Product List</h4>
+                    <h4 class="mb-3">Daftar Persediaan produk</h4>
                     <p class="mb-0">A stock product dashboard lets you easily gather and visualize stock product data from optimizing <br>
                         the stock product experience, ensuring stock product retention. </p>
                 </div>
@@ -45,9 +45,9 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="control-label col-sm-3 align-self-center" for="search">Search:</label>
+                        <label class="control-label col-sm-3 align-self-center" for="search">Pencarian:</label>
                         <div class="input-group col-sm-8">
-                            <input type="text" id="search" class="form-control" name="search" placeholder="Search product" value="{{ request('search') }}">
+                            <input type="text" id="search" class="form-control" name="search" placeholder="Cari Produk" value="{{ request('search') }}">
                             <div class="input-group-append">
                                 <button type="submit" class="input-group-text bg-primary"><i class="fa-solid fa-magnifying-glass font-size-20"></i></button>
                                 <a href="{{ route('order.stockManage') }}" class="input-group-text bg-danger"><i class="fa-solid fa-trash"></i></a>
@@ -65,10 +65,10 @@
                         <tr class="ligth ligth-data">
                             <th>No.</th>
                             <th>Photo</th>
-                            <th>@sortablelink('product_name', 'name')</th>
-                            <th>@sortablelink('category.name', 'category')</th>
+                            <th>@sortablelink('product_name', 'nama')</th>
+                            <th>@sortablelink('category.name', 'kategory')</th>
                             <th>@sortablelink('supplier.name', 'supplier')</th>
-                            <th>@sortablelink('selling_price', 'price')</th>
+                            <th>@sortablelink('selling_price', 'harga')</th>
                             <th>Stock</th>
                         </tr>
                     </thead>

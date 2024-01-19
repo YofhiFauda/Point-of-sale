@@ -13,7 +13,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <div class="header-title">
-                        <h4 class="card-title">Edit Product</h4>
+                        <h4 class="card-title">Edit Produk</h4>
                     </div>
                 </div>
 
@@ -36,7 +36,7 @@
                             <div class="input-group mb-4 col-lg-6">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input @error('product_image') is-invalid @enderror" id="image" name="product_image" accept="image/*" onchange="previewImage();">
-                                    <label class="custom-file-label" for="product_image">Choose file</label>
+                                    <label class="custom-file-label" for="product_image">Pilih File</label>
                                 </div>
                                 @error('product_image')
                                 <div class="invalid-feedback">
@@ -49,7 +49,7 @@
                         <!-- begin: Input Data -->
                         <div class=" row align-items-center">
                             <div class="form-group col-md-12">
-                                <label for="product_name">Product Name <span class="text-danger">*</span></label>
+                                <label for="product_name">Nama Produk <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control @error('product_name') is-invalid @enderror" id="product_name" name="product_name" value="{{ old('product_name', $product->product_name) }}" required>
                                 @error('product_name')
                                 <div class="invalid-feedback">
@@ -58,7 +58,7 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="category_id">Category <span class="text-danger">*</span></label>
+                                <label for="category_id">Kategori <span class="text-danger">*</span></label>
                                 <select class="form-control" name="category_id" required>
                                     <option selected="" disabled>-- Select Category --</option>
                                     @foreach ($categories as $category)
@@ -86,7 +86,7 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="product_garage">Product Garage</label>
+                                <label for="product_garage">Garasi Produk</label>
                                 <input type="text" class="form-control @error('product_garage') is-invalid @enderror" id="product_garage" name="product_garage" value="{{ old('product_garage', $product->product_garage) }}">
                                 @error('product_garage')
                                 <div class="invalid-feedback">
@@ -95,7 +95,7 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="product_store">Product Store</label>
+                                <label for="product_store">Produk Toko</label>
                                 <input type="text" class="form-control @error('product_store') is-invalid @enderror" id="product_store" name="product_store" value="{{ old('product_store', $product->product_store) }}">
                                 @error('product_store')
                                 <div class="invalid-feedback">
@@ -104,7 +104,7 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="buying_date">Buying Date</label>
+                                <label for="buying_date">Tanggal Pembelian</label>
                                 <input id="buying_date" class="form-control @error('buying_date') is-invalid @enderror" name="buying_date" value="{{ old('buying_date', $product->buying_date) }}" />
                                 @error('buying_date')
                                 <div class="invalid-feedback">
@@ -113,7 +113,7 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="expire_date">Expire Date</label>
+                                <label for="expire_date">Tanggal Kadaluarsa</label>
                                 <input id="expire_date" class="form-control @error('expire_date') is-invalid @enderror" name="expire_date" value="{{ old('expire_date', $product->expire_date) }}" />
                                 @error('expire_date')
                                 <div class="invalid-feedback">
@@ -122,7 +122,7 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="buying_price">Buying Price <span class="text-danger">*</span></label>
+                                <label for="buying_price">Harga Beli <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control @error('buying_price') is-invalid @enderror" id="buying_price" name="buying_price" value="{{ old('buying_price', $product->buying_price) }}" required>
                                 @error('buying_price')
                                 <div class="invalid-feedback">
@@ -131,7 +131,7 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="selling_price">Selling Price <span class="text-danger">*</span></label>
+                                <label for="selling_price">Harga Jual <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control @error('selling_price') is-invalid @enderror" id="selling_price" name="selling_price" value="{{ old('selling_price', $product->selling_price) }}" required>
                                 @error('selling_price')
                                 <div class="invalid-feedback">
@@ -142,8 +142,8 @@
                         </div>
                         <!-- end: Input Data -->
                         <div class="mt-2">
-                            <button type="submit" class="btn btn-primary mr-2">Save</button>
-                            <a class="btn bg-danger" href="{{ route('products.index') }}">Cancel</a>
+                            <button type="submit" class="btn btn-primary mr-2">Simpan</button>
+                            <a class="btn bg-danger" href="{{ route('products.index') }}">Batal</a>
                         </div>
                     </form>
                 </div>

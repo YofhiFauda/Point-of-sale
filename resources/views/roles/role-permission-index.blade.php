@@ -14,10 +14,10 @@
             @endif
             <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
                 <div>
-                    <h4 class="mb-3">Role in Permission List</h4>
+                    <h4 class="mb-3">Daftar Role in Permission</h4>
                 </div>
                 <div>
-                    <a href="{{ route('rolePermission.create') }}" class="btn btn-primary add-list"><i class="fa-solid fa-plus mr-3"></i>Add Role in Permission</a>
+                    <a href="{{ route('rolePermission.create') }}" class="btn btn-primary add-list"><i class="fa-solid fa-plus mr-3"></i>Tambah Role in Permission</a>
                 </div>
             </div>
         </div>
@@ -58,9 +58,9 @@
                     <thead class="bg-white text-uppercase">
                         <tr class="ligth ligth-data">
                             <th>No.</th>
-                            <th>Role Name</th>
-                            <th>Permission Name</th>
-                            <th>Action</th>
+                            <th>Nama Role</th>
+                            <th>Nama Permission</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="ligth-body">
@@ -83,7 +83,7 @@
                                         <a class="btn btn-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"
                                             href="{{ route('rolePermission.edit', $role->id) }}"><i class="ri-pencil-line mr-0"></i>
                                         </a>
-                                        <button type="submit" class="btn btn-warning mr-2 border-none" onclick="return confirm('Are you sure you want to delete this record?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="ri-delete-bin-line mr-0"></i></button>
+                                        <button type="submit" class="btn btn-warning mr-2 border-none" onclick="return confirm('Are you sure you want to delete this record?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Hapus"><i class="ri-delete-bin-line mr-0"></i></button>
                                     </div>
                                 </form>
                             </td>

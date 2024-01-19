@@ -24,7 +24,7 @@
                     <form action="#" method="get">
                         <div class="d-flex flex-wrap align-items-center justify-content-between">
                             <div class="form-group row">
-                                <label for="row" class="align-self-center mx-2">Row:</label>
+                                <label for="row" class="align-self-center mx-2">Row :</label>
                                 <div>
                                     <select class="form-control" name="row">
                                         <option value="10" @if(request('row') == '10')selected="selected"@endif>10</option>
@@ -36,9 +36,9 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="control-label col-sm-3 align-self-center" for="search">Search:</label>
+                                <label class="control-label align-self-center " for="search">Pencarian : </label>
                                 <div class="input-group col-sm-8">
-                                    <input type="text" id="search" class="form-control" name="search" placeholder="Search product" value="{{ request('search') }}">
+                                    <input type="text" id="search" class="form-control" name="search" placeholder="Cari Produk" value="{{ request('search') }}">
                                     <div class="input-group-append">
                                         <button type="submit" class="input-group-text bg-primary"><i class="fa-solid fa-magnifying-glass font-size-20"></i></button>
                                         <a href="{{ route('products.index') }}" class="input-group-text bg-danger"><i class="fa-solid fa-trash"></i></a>
@@ -76,7 +76,7 @@
                                             <input type="hidden" name="name" value="{{ $product->product_name }}">
                                             <input type="hidden" name="price" value="{{ $product->selling_price }}">
 
-                                            <button type="submit" class="btn btn-primary border-none" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add"><i class="far fa-plus mr-0"></i></button>
+                                            <button type="submit" class="btn btn-primary border-none" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tambah"><i class="far fa-plus mr-0"></i></button>
                                         </form>
                                     </td>
                                 </tr>
@@ -102,7 +102,7 @@
                 <thead>
                     <tr class="ligth">
                         <th scope="col">Nama</th>
-                        <th scope="col">Order</th>
+                        <th scope="col">Total Pesanan</th>
                         <th scope="col">Harga</th>
                         <th scope="col">Total Harga</th>
                         <th scope="col">Aksi</th>

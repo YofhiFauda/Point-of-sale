@@ -30,7 +30,7 @@
                             <div class="input-group mb-4 col-lg-6">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input @error('photo') is-invalid @enderror" id="image" name="photo" accept="image/*" onchange="previewImage();">
-                                    <label class="custom-file-label" for="photo">Choose file</label>
+                                    <label class="custom-file-label" for="photo">Pilih File</label>
                                 </div>
                                 @error('photo')
                                 <div class="invalid-feedback">
@@ -43,7 +43,7 @@
                         <!-- begin: Input Data -->
                         <div class=" row align-items-center">
                             <div class="form-group col-md-6">
-                                <label for="name">Supplier Name <span class="text-danger">*</span></label>
+                                <label for="name">Nama Supplier <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $supplier->name) }}" required>
                                 @error('name')
                                 <div class="invalid-feedback">
@@ -52,7 +52,7 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="shopname">Shop Name <span class="text-danger">*</span></label>
+                                <label for="shopname">Nama Toko <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control @error('shopname') is-invalid @enderror" id="shopname" name="shopname" value="{{ old('shopname', $supplier->shopname) }}" required>
                                 @error('shopname')
                                 <div class="invalid-feedback">
@@ -61,7 +61,7 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="email">Supplier Email <span class="text-danger">*</span></label>
+                                <label for="email">Email Supplier <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email', $supplier->email) }}" required>
                                 @error('email')
                                 <div class="invalid-feedback">
@@ -70,7 +70,7 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="phone">Supplier Phone <span class="text-danger">*</span></label>
+                                <label for="phone">No Handphone <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" value="{{ old('phone', $supplier->phone) }}" required>
                                 @error('phone')
                                 <div class="invalid-feedback">
@@ -79,7 +79,7 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="account_holder">Account Holder</label>
+                                <label for="account_holder">Pemilik Akun</label>
                                 <input type="text" class="form-control @error('account_holder') is-invalid @enderror" id="account_holder" name="account_holder" value="{{ old('account_holder', $supplier->account_holder) }}">
                                 @error('account_holder')
                                 <div class="invalid-feedback">
@@ -88,7 +88,7 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="bank_name">Bank Name</label>
+                                <label for="bank_name">Nama Bank</label>
                                 <select class="form-control @error('bank_name') is-invalid @enderror" name="bank_name">
                                     <option value="">Select Year..</option>
                                     <option value="BRI" @if(old('bank_name', $supplier->bank_name) == 'BRI')selected="selected"@endif>BRI</option>
@@ -104,7 +104,7 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="account_number">Account Number</label>
+                                <label for="account_number">Nomer Akun</label>
                                 <input type="text" class="form-control @error('account_number') is-invalid @enderror" id="account_number" name="account_number" value="{{ old('account_number', $supplier->account_number) }}">
                                 @error('account_number')
                                 <div class="invalid-feedback">
@@ -113,7 +113,7 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="bank_branch">Bank Branch</label>
+                                <label for="bank_branch">Cabang Bank</label>
                                 <input type="text" class="form-control @error('bank_branch') is-invalid @enderror" id="bank_branch" name="bank_branch" value="{{ old('bank_branch', $supplier->bank_branch) }}">
                                 @error('bank_branch')
                                 <div class="invalid-feedback">
@@ -122,7 +122,7 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="city">Supplier City <span class="text-danger">*</span></label>
+                                <label for="city">Kota Supplier <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control @error('city') is-invalid @enderror" id="city" name="city" value="{{ old('city', $supplier->city) }}" required>
                                 @error('city')
                                 <div class="invalid-feedback">
@@ -131,9 +131,9 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="type">Type of Supplier <span class="text-danger">*</span></label>
+                                <label for="type">Jenis Supplier <span class="text-danger">*</span></label>
                                 <select class="form-control @error('type') is-invalid @enderror" name="type" required>
-                                    <option value="">Select Type..</option>
+                                    <option value="">Pilih Jenis..</option>
                                     <option value="Distributor" @if(old('type', $supplier->type) == 'Distributor')selected="selected"@endif>Distributor</option>
                                     <option value="Whole Seller" @if(old('type', $supplier->type) == 'Whole Seller')selected="selected"@endif>Whole Seller</option>
                                 </select>
@@ -156,7 +156,7 @@
                         <!-- end: Input Data -->
                         <div class="mt-2">
                             <button type="submit" class="btn btn-primary mr-2">Update</button>
-                            <a class="btn bg-danger" href="{{ route('suppliers.index') }}">Cancel</a>
+                            <a class="btn bg-danger" href="{{ route('suppliers.index') }}">Batal</a>
                         </div>
                     </form>
                 </div>

@@ -14,10 +14,10 @@
             @endif
             <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
                 <div>
-                    <h4 class="mb-3">Pending Order List</h4>
+                    <h4 class="mb-3">Daftar Pembayaran Tertunda</h4>
                 </div>
                 <div>
-                    <a href="{{ route('order.pendingDue') }}" class="btn btn-danger add-list"><i class="fa-solid fa-trash mr-3"></i>Clear Search</a>
+                    <a href="{{ route('order.pendingDue') }}" class="btn btn-danger add-list"><i class="fa-solid fa-trash mr-3"></i>Hapus Pencarian</a>
                 </div>
             </div>
         </div>
@@ -38,10 +38,10 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="control-label col-sm-3 align-self-center" for="search">Search:</label>
+                        <label class="control-label col-sm-3 align-self-center" for="search">Pencarian:</label>
                         <div class="col-sm-8">
                             <div class="input-group">
-                                <input type="text" id="search" class="form-control" name="search" placeholder="Search order" value="{{ request('search') }}">
+                                <input type="text" id="search" class="form-control" name="search" placeholder="Cari Pesanan" value="{{ request('search') }}">
                                 <div class="input-group-append">
                                     <button type="submit" class="input-group-text bg-primary"><i class="fa-solid fa-magnifying-glass font-size-20"></i></button>
                                 </div>
@@ -58,16 +58,16 @@
                     <thead class="bg-white text-uppercase">
                         <tr class="ligth ligth-data">
                         <th>No.</th>
-                            <th>Invoice No</th>
-                            <th>@sortablelink('order_date', 'order date')</th>
-                            <th>Total Order</th>
+                            <th>No Pesanan</th>
+                            <th>@sortablelink('order_date', 'Tanggal Pesanan')</th>
+                            <th>Total Pesanan</th>
                             <th>Harga</th>
-                            <th>Harga + ppn</th>
+                            <th>Harga + PPN</th>
                             <th>Bayar</th>
                             <th>Kembalian</th>
-                            <th>Payment</th>
+                            <th>Pembayaran</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="ligth-body">
@@ -86,7 +86,7 @@
                             <td>
                                 <span class="badge badge-success">{{ $order->order_status }}</span>
                             </td>
-                                <button type="button" class="btn btn-primary-dark mr-2" data-toggle="modal" data-target=".bd-example-modal-lg" id="{{ $order->id }}" onclick="payDue(this.id)">Pay Due</button>
+                                <button type="button" class="btn btn-primary-dark mr-2" data-toggle="modal" data-target=".bd-example-modal-lg" id="{{ $order->id }}" onclick="payDue(this.id)">Bayar Hutang</button>
                                 </div>
                             </td>
                         </tr>
@@ -107,10 +107,10 @@
                 @csrf
                 <input type="hidden" name="order_id" id="order_id">
                 <div class="modal-body">
-                    <h3 class="modal-title text-center mx-auto">Pay Due</h3>
+                    <h3 class="modal-title text-center mx-auto">Bayar Hutang</h3>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="due">Pay Now</label>
+                            <label for="due">Bayar Sekarang</label>
                             <input type="text" class="form-control bg-white @error('due') is-invalid @enderror" id="due" name="due">
                             @error('due')
                             <div class="invalid-feedback">
@@ -121,8 +121,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Pay</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+                    <button type="submit" class="btn btn-primary">Bayar</button>
                 </div>
             </form>
         </div>

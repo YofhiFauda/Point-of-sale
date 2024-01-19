@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <div class="header-title">
-                        <h4 class="card-title">Information Order Details</h4>
+                        <h4 class="card-title">Informasi Detail Pesanan</h4>
                     </div>
                 </div>
 
@@ -38,23 +38,23 @@
                             <input type="text" class="form-control bg-white" value="{{ $order->customer->phone }}" readonly>
                         </div> --}}
                         <div class="form-group col-md-6">
-                            <label>Order Date</label>
+                            <label>Tanggal Pesanan</label>
                             <input type="text" class="form-control bg-white" value="{{ $order->order_date }}" readonly>
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Order Invoice</label>
+                            <label>Nomor Pesanan</label>
                             <input class="form-control bg-white" id="buying_date" value="{{ $order->invoice_no }}" readonly/>
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Payment Status</label>
+                            <label>Status Pembayaran</label>
                             <input class="form-control bg-white" id="expire_date" value="{{ $order->payment_status }}" readonly />
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Paid Amount</label>
+                            <label>jumlah Pembayaran</label>
                             <input type="text" class="form-control bg-white" value="{{ $order->pay }}" readonly>
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Due Amount</label>
+                            <label>Total Kembalian</label>
                             <input type="text" class="form-control bg-white" value="{{ $order->due }}" readonly>
                         </div>
                     </div>
@@ -68,9 +68,9 @@
                                         @method('put')
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $order->id }}">
-                                        <button type="submit" class="btn btn-success mr-2 border-none" data-toggle="tooltip" data-placement="top" title="" data-original-title="Complete">Complete Order</button>
+                                        <button type="submit" class="btn btn-success mr-2 border-none" data-toggle="tooltip" data-placement="top" title="" data-original-title="Complete">Pesanan Selesai</button>
 
-                                        <a class="btn btn-danger mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Cancel" href="{{ route('order.pendingOrders') }}">Cancel</a>
+                                        <a class="btn btn-danger mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Cancel" href="{{ route('order.pendingOrders') }}">Batal</a>
                                     </form>
                                 </div>
                             </div>
@@ -89,11 +89,11 @@
                         <tr class="ligth ligth-data">
                             <th>No.</th>
                             <th>Photo</th>
-                            <th>Product Name</th>
-                            <th>Product Code</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Total(+vat)</th>
+                            <th>Nama Produk</th>
+                            <th>Kode Produk</th>
+                            <th>Jumlah Pesanan</th>
+                            <th>Harga</th>
+                            <th>Total(+PPN)</th>
                         </tr>
                     </thead>
                     <tbody class="ligth-body">

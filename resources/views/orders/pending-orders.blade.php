@@ -14,10 +14,10 @@
             @endif
             <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
                 <div>
-                    <h4 class="mb-3">Pending Order List</h4>
+                    <h4 class="mb-3">Daftar Pesanan Tertunda</h4>
                 </div>
                 <div>
-                    <a href="{{ route('order.pendingOrders') }}" class="btn btn-danger add-list"><i class="fa-solid fa-trash mr-3"></i>Clear Search</a>
+                    <a href="{{ route('order.pendingOrders') }}" class="btn btn-danger add-list"><i class="fa-solid fa-trash mr-3"></i>Hapus Pencarian</a>
                 </div>
             </div>
         </div>
@@ -38,10 +38,10 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="control-label col-sm-3 align-self-center" for="search">Search:</label>
+                        <label class="control-label col-sm-3 align-self-center" for="search">Pencarian:</label>
                         <div class="col-sm-8">
                             <div class="input-group">
-                                <input type="text" id="search" class="form-control" name="search" placeholder="Search order" value="{{ request('search') }}">
+                                <input type="text" id="search" class="form-control" name="search" placeholder="Cari Pesanan" value="{{ request('search') }}">
                                 <div class="input-group-append">
                                     <button type="submit" class="input-group-text bg-primary"><i class="fa-solid fa-magnifying-glass font-size-20"></i></button>
                                 </div>
@@ -58,16 +58,16 @@
                     <thead class="bg-white text-uppercase">
                         <tr class="ligth ligth-data">
                             <th>No.</th>
-                            <th>Invoice No</th>
-                            <th>@sortablelink('order_date', 'order date')</th>
-                            <th>Total Order</th>
+                            <th>No Pesanan</th>
+                            <th>@sortablelink('order_date', 'Tanggal Pesanan')</th>
+                            <th>Total Pesanan</th>
                             <th>Harga</th>
-                            <th>Harga + ppn</th>
+                            <th>Harga + PPN</th>
                             <th>Bayar</th>
                             <th>Kembalian</th>
-                            <th>Payment</th>
+                            <th>Pembayaran</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="ligth-body">
@@ -90,7 +90,7 @@
                             <td>
                                 <div class="d-flex align-items-center list-action">
                                     <a class="btn btn-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Details"
-                                        href="{{ route('order.orderDetails', $order->id) }}">Details
+                                        href="{{ route('order.orderDetails', $order->id) }}">Rincian
                                     </a>
                                 </div>
                             </td>
