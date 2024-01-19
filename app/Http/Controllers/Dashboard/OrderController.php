@@ -53,11 +53,11 @@ class OrderController extends Controller
         // Add date range filter
         $startDate = request('start_date');
         $endDate = request('end_date');
-    
+
         if ($startDate && $endDate) {
             $query->whereBetween('order_date', [$startDate, $endDate]);
         }
-    
+
         $orders = $query->paginate($row);
 
 
@@ -86,7 +86,7 @@ class OrderController extends Controller
             return;
         }
     }
-    
+
     function exportData(){
 
         $orders = Order::all()->sortByDesc('invoice_no');
@@ -193,7 +193,7 @@ class OrderController extends Controller
         // Delete Cart Sopping History
         Cart::destroy();
 
-        return Redirect::route('dashboard')->with('success', 'Order has been created!');
+        return Redirect::route('dashboard')->with('Selamat', 'Pesanan telah dibuat!');
     }
 
     /**
@@ -230,7 +230,7 @@ class OrderController extends Controller
 
         Order::findOrFail($order_id)->update(['order_status' => 'complete']);
 
-        return Redirect::route('order.pendingOrders')->with('success', 'Order has been completed!');
+        return Redirect::route('order.pendingOrders')->with('Selamat', 'Pesanan telah selesai!');
     }
 
     public function invoiceDownload(Int $order_id)
@@ -293,7 +293,7 @@ class OrderController extends Controller
             'pay' => $paid_pay,
         ]);
 
-        return Redirect::route('order.pendingDue')->with('success', 'Due Amount Updated Successfully!');
+        return Redirect::route('order.pendingDue')->with('Selamat', 'Total Hutang telah dibayar!');
     }
 
     //delete order by id
@@ -302,7 +302,7 @@ class OrderController extends Controller
 
         Order::destroy($id);
 
-        return Redirect::route('order.completeOrders')->with('success', 'Order has been deleted!');
+        return Redirect::route('order.completeOrders')->with('Selamat', 'Pesanan telah dihapus!');
     }
 
     //delete All Order
@@ -314,10 +314,10 @@ class OrderController extends Controller
 
             // You may also want to delete related data or perform additional actions here
 
-            return Redirect::route('order.completeOrders')->with('success', 'All complete orders have been deleted!');
+            return Redirect::route('order.completeOrders')->with('Selamat', 'Semua Pesanan Telah dihapus!');
         } catch (Exception $e) {
             // Handle any exceptions or errors that may occur during the deletion process
-            return Redirect::route('order.completeOrders')->with('error', 'Failed to delete complete orders. Error: ' . $e->getMessage());
+            return Redirect::route('order.completeOrders')->with('error', 'Gagal menghapus Pesanan. Error: ' . $e->getMessage());
         }
     }
 

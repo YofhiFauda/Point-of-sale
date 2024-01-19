@@ -14,10 +14,10 @@
                         <form action="{{ route('pos.printInvoice') }}" method="post">
                             @csrf
                             <input type="hidden" name="customer_id" value="{{ $customer->id }}">
-                            <button type="submit" class="btn btn-primary-dark mr-2"><i class="las la-print"></i> Print</button>
+                            <button type="submit" class="btn btn-primary-dark mr-2"><i class="las la-print"></i> Cetak</button>
                         </form>
 
-                        <button type="button" class="btn btn-primary-dark mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">Create</button>
+                        <button type="button" class="btn btn-primary-dark mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">Buat</button>
 
                         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
@@ -114,7 +114,7 @@
                                         <tr>
                                             <th class="text-center" scope="col">#</th>
                                             <th scope="col">Item</th>
-                                            <th class="text-center" scope="col">Order</th>
+                                            <th class="text-center" scope="col">Pesanan</th>
                                             <th class="text-center" scope="col">Harga</th>
                                             <th class="text-center" scope="col">Total Harga</th>
                                         </tr>
@@ -141,10 +141,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <b class="text-danger">Catatan:</b>
-                            <p class="mb-0">It is a long established fact that a reader will be distracted by the readable content of a page
-                                when looking
-                                at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,
-                                as opposed to using 'Content here, content here', making it look like readable English.</p>
+                            <p class="mb-0">-</p>
                         </div>
                     </div>
 
@@ -155,16 +152,16 @@
                                     <h5 class="mb-3">Rincian Pesanan</h5>
                                     <div class="mb-2">
                                         <h6>Total Harga</h6>
-                                        <p>${{ Cart::subtotal() }}</p>
+                                        <p>Rp {{ Cart::subtotal() }}</p>
                                     </div>
                                     <div>
                                         <h6>PPN (5%)</h6>
-                                        <p>${{ Cart::tax() }}</p>
+                                        <p>Rp {{ Cart::tax() }}</p>
                                     </div>
                                 </div>
                                 <div class="ttl-amt py-2 px-3 d-flex justify-content-between align-items-center">
                                     <h6>Total</h6>
-                                    <h3 class="text-primary font-weight-700">${{ Cart::total() }}</h3>
+                                    <h3 class="text-primary font-weight-700">Rp {{ Cart::total() }}</h3>
                                 </div>
                             </div>
                         </div>

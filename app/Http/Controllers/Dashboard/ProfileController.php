@@ -77,7 +77,7 @@ class ProfileController extends Controller
 
         User::where('id', $user->id)->update($validatedData);
 
-        return Redirect::route('profile')->with('success', 'Profile has been updated!');
+        return Redirect::route('profile')->with('Selamat', 'Profil telah diperbarui!');
     }
 
     /**

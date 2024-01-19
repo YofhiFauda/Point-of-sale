@@ -108,8 +108,8 @@
                             <td>{{ $item->quantity }}</td>
                             {{-- <td>${{ $item->unitcost }}</td>
                             <td>${{ $item->total }}</td> --}}
-                            <td>${{ number_format($item->unitcost, 2) }}</td>
-                            <td>${{ number_format($item->total, 2) }}</td>
+                            <td>Rp {{ number_format($item->unitcost) }}</td>
+                            <td>Rp {{ number_format($item->total) }}</td>
                         </tr>
                         @endforeach
                     </tbody>

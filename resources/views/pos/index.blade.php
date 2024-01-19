@@ -24,7 +24,7 @@
                     <form action="#" method="get">
                         <div class="d-flex flex-wrap align-items-center justify-content-between">
                             <div class="form-group row">
-                                <label for="row" class="align-self-center mx-2">Row :</label>
+                                <label for="row" class="align-self-center mx-2">Baris :</label>
                                 <div>
                                     <select class="form-control" name="row">
                                         <option value="10" @if(request('row') == '10')selected="selected"@endif>10</option>
@@ -83,7 +83,7 @@
 
                                 @empty
                                 <div class="alert text-white bg-danger" role="alert">
-                                    <div class="iq-alert-text">Data not Found.</div>
+                                    <div class="iq-alert-text">Data tidak ditemukan.</div>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <i class="ri-close-line"></i>
                                     </button>

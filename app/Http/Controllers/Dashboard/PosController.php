@@ -49,7 +49,7 @@ class PosController extends Controller
             'options' => ['size' => 'large']
         ]);
 
-        return Redirect::back()->with('success', 'Product has been added!');
+        return Redirect::back()->with('Selamat', 'Produk telah ditambahkan!');
     }
 
     public function updateCart(Request $request, $rowId)
@@ -62,14 +62,14 @@ class PosController extends Controller
 
         Cart::update($rowId, $validatedData['qty']);
 
-        return Redirect::back()->with('success', 'Cart has been updated!');
+        return Redirect::back()->with('Selamat', 'Cart has been updated!');
     }
 
     public function deleteCart(String $rowId)
     {
         Cart::remove($rowId);
 
-        return Redirect::back()->with('success', 'Cart has been deleted!');
+        return Redirect::back()->with('Selamat', 'Cart has been deleted!');
     }
 
     public function createInvoice(Request $request)

@@ -67,7 +67,7 @@ class EmployeeController extends Controller
 
         Employee::create($validatedData);
 
-        return Redirect::route('employees.index')->with('success', 'Employee has been created!');
+        return Redirect::route('employees.index')->with('Selamat', 'Data Karyawan telah ditambahkan!');
     }
 
     /**
@@ -129,7 +129,7 @@ class EmployeeController extends Controller
 
         Employee::where('id', $employee->id)->update($validatedData);
 
-        return Redirect::route('employees.index')->with('success', 'Employee has been updated!');
+        return Redirect::route('employees.index')->with('Selamat', 'Data Karyawan telah diperbarui!');
     }
 
     /**
@@ -146,6 +146,6 @@ class EmployeeController extends Controller
 
         Employee::destroy($employee->id);
 
-        return Redirect::route('employees.index')->with('success', 'Employee has been deleted!');
+        return Redirect::route('employees.index')->with('Selamat', 'Data Karyawan telah dihapus!');
     }
 }

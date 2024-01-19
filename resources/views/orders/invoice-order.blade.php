@@ -56,9 +56,9 @@
                                     <h4 class="inv-title-1">Details</h4>
                                     <p class="inv-from-1">Payment Status: {{ $order->payment_status }}</p>
                                     {{-- <p class="inv-from-1">Total Pay: ${{ $order->pay }}</p> --}}
-                                    <p class="inv-from-1">Total Pay: ${{ number_format($order->pay, 2) }}</p>
+                                    <p class="inv-from-1">Total Pay: Rp {{ number_format($order->pay, 2) }}</p>
                                     {{-- <p class="inv-from-1">Due: ${{ $order->due }}</p> --}}
-                                    <p class="inv-from-1">Due: ${{ number_format($order->due, 2) }}</p>
+                                    <p class="inv-from-1">Due: Rp {{ number_format($order->due, 2) }}</p>
                                 </div>
                                 {{-- <div class="col-sm-6 text-end mb-50">
                                     <h4 class="inv-title-1">Customer</h4>

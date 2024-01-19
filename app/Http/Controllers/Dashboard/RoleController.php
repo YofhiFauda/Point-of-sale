@@ -39,7 +39,7 @@ class RoleController extends Controller
 
         Permission::create($validatedData);
 
-        return Redirect::route('permission.index')->with('success', 'Permission has been created!');
+        return Redirect::route('permission.index')->with('Selamat', 'Permission has been created!');
     }
 
     public function permissionEdit(Int $id)

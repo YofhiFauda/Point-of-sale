@@ -1,6 +1,7 @@
 @extends('dashboard.body.main')
 
 @section('container')
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
@@ -31,9 +32,9 @@
                                     <img src="../assets/images/product/1.png" class="img-fluid" alt="image">
                                 </div>
                                 <div>
-                                    <p class="mb-2">Total Paid</p>
+                                    <p class="mb-2">Total Bayar</p>
                                     {{-- <h4>$ {{ $total_paid }}</h4> --}}
-                                    <h4>${{ number_format($total_paid, 2) }}</h4>
+                                    <h4>Rp {{ number_format($total_paid) }}</h4>
                                 </div>
                             </div>
                             <div class="iq-progress-bar mt-2">
@@ -51,9 +52,9 @@
                                     <img src="../assets/images/product/2.png" class="img-fluid" alt="image">
                                 </div>
                                 <div>
-                                    <p class="mb-2">Total Due</p>
+                                    <p class="mb-2">Total Kembalian</p>
                                     {{-- <h4>$ {{ $total_due }}</h4> --}}
-                                    <h4>${{ number_format($total_due, 2) }}</h4>
+                                    <h4>Rp {{ number_format($total_due) }}</h4>
                                 </div>
                             </div>
                             <div class="iq-progress-bar mt-2">
@@ -71,7 +72,7 @@
                                     <img src="../assets/images/product/3.png" class="img-fluid" alt="image">
                                 </div>
                                 <div>
-                                    <p class="mb-2">Complete Orders</p>
+                                    <p class="mb-2">Pesanan Selesai</p>
                                     <h4>{{ count($complete_orders) }}</h4>
                                 </div>
                             </div>
@@ -90,7 +91,7 @@
                                     <img src="../assets/images/product/2.png" class="img-fluid" alt="image">
                                 </div>
                                 <div>
-                                    <p class="mb-2"> Pending Order</p>
+                                    <p class="mb-2"> Pesanan Tertunda</p>
                                     <h4>{{ count($order_status) }}</h4>
                                 </div>
                             </div>
@@ -146,8 +147,8 @@
                             <td>{{ $item->quantity }}</td>
                             {{-- <td>${{ $item->unitcost }}</td>
                             <td>${{ $item->total }}</td> --}}
-                            <td>${{ number_format($item->unitcost, 2) }}</td>
-                            <td>${{ number_format($item->total, 2) }}</td>
+                            <td>Rp {{ number_format($item->unitcost) }}</td>
+                            <td>Rp {{ number_format($item->total) }}</td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -219,7 +220,7 @@
                         <div class="style-text text-left">
                             <h5 class="mb-2">{{ $product->product_name }}</h5>
                             <p class="mb-2">Stock : {{ $product->product_store }}</p>
-                            <p class="mb-0">Price : ${{ $product->selling_price }}</p>
+                            <p class="mb-0">Price : Rp {{ $product->selling_price }}</p>
                         </div>
                     </div>
                 </div>
@@ -229,7 +230,7 @@
     </div>
     <!-- Page end  -->
 </div>
-@endsection 
+@endsection
 
 @section('specificpagescripts')
 {{-- sortir --}}

@@ -26,7 +26,7 @@
             <form action="{{ route('order.pendingDue') }}" method="get">
                 <div class="d-flex flex-wrap align-items-center justify-content-between">
                     <div class="form-group row">
-                        <label for="row" class="col-sm-3 align-self-center">Row:</label>
+                        <label for="row" class="col-sm-3 align-self-center">Baris:</label>
                         <div class="col-sm-9">
                             <select class="form-control" name="row">
                                 <option value="10" @if(request('row') == '10')selected="selected"@endif>10</option>
@@ -77,11 +77,11 @@
                             <td>{{ $order->invoice_no }}</td>
                             <td>{{ $order->order_date }}</td>
                             <td>{{ $order->total_products }} pcs</td>
-                            <td>${{ number_format($order->sub_total, 2) }}</td>
+                            <td>Rp {{ number_format($order->sub_total) }}</td>
                             {{-- <td>${{ $order->pay }}</td> --}}
-                            <td>${{ number_format($order->total, 2) }}</td>
-                            <td>${{ number_format($order->pay, 2) }}</td>
-                            <td>${{ number_format($order->due, 2) }}</td>
+                            <td>Rp {{ number_format($order->total) }}</td>
+                            <td>Rp {{ number_format($order->pay) }}</td>
+                            <td>Rp {{ number_format($order->due) }}</td>
                             <td>{{ $order->payment_status }}</td>
                             <td>
                                 <span class="badge badge-success">{{ $order->order_status }}</span>

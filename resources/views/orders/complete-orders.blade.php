@@ -29,12 +29,12 @@
             </div>
         </div>
         {{-- End Of Complete Order List, Export and Clear Search --}}
-        
+
         <div class="col-lg-12">
             <form action="{{ route('order.completeOrders') }}" method="get">
                 <div class="d-flex flex-wrap align-items-center justify-content-between">
                     <div class="form-group row">
-                        <label for="row" class="col-sm-3 align-self-center">Row:</label>
+                        <label for="row" class="col-sm-3 align-self-center">Baris:</label>
                         <div class="col-sm-9">
                             <select class="form-control" name="row">
                                 <option value="10" @if(request('row') == '10')selected="selected"@endif>10</option>
@@ -74,7 +74,7 @@
                             <input type="date" id="end_date" class="form-control" name="end_date" value="{{ request('end_date') }}">
                         </div>
                     </div>
-            
+
                     <div class="form-group row">
                         <div class="col-sm-9">
                             <button type="submit" class="btn btn-primary">Kirim</button>
@@ -109,11 +109,11 @@
                             <td>{{ $order->invoice_no }}</td>
                             <td>{{ $order->order_date }}</td>
                             <td>{{ $order->total_products }} pcs</td>
-                            <td>${{ number_format($order->sub_total, 2) }}</td>
+                            <td>Rp {{ number_format($order->sub_total) }}</td>
                             {{-- <td>${{ $order->pay }}</td> --}}
-                            <td>${{ number_format($order->total, 2) }}</td>
-                            <td>${{ number_format($order->pay, 2) }}</td>
-                            <td>${{ number_format($order->due, 2) }}</td>
+                            <td>Rp {{ number_format($order->total) }}</td>
+                            <td>Rp {{ number_format($order->pay) }}</td>
+                            <td>Rp {{ number_format($order->due) }}</td>
                             <td>{{ $order->payment_status }}</td>
                             <td>
                                 <span class="badge badge-success">{{ $order->order_status }}</span>
@@ -143,9 +143,9 @@
                             <th></th>
                             <th>{{ $orders->sum('total_products') }} pcs </th>
                             <th></th>
-                            <th> ${{ number_format($orders->sum('total'), 2) }}</th>
-                            <th>${{ number_format($orders->sum('pay'), 2) }}</th>
-                            <th>${{ number_format($orders->sum('due'), 2) }}</th>
+                            <th>Rp {{ number_format($orders->sum('total')) }}</th>
+                            <th>Rp {{ number_format($orders->sum('pay')) }}</th>
+                            <th>Rp {{ number_format($orders->sum('due')) }}</th>
                             <th></th>
                         </tr>
                     </tfoot>

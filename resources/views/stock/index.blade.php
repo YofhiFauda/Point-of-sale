@@ -33,7 +33,7 @@
             <form action="{{ route('order.stockManage') }}" method="get">
                 <div class="d-flex flex-wrap align-items-center justify-content-between">
                     <div class="form-group row">
-                        <label for="row" class="col-sm-3 align-self-center">Row:</label>
+                        <label for="row" class="col-sm-3 align-self-center">Baris:</label>
                         <div class="col-sm-9">
                             <select class="form-control" name="row">
                                 <option value="10" @if(request('row') == '10')selected="selected"@endif>10</option>
@@ -83,7 +83,7 @@
                             <td>{{ $product->category->name }}</td>
                             <td>{{ $product->supplier->name }}</td>
                             {{-- <td>${{ $product->selling_price }}</td> --}}
-                            <td>${{ number_format( $product->selling_price, 2) }}</td>
+                            <td>Rp {{ number_format( $product->selling_price) }}</td>
                             <td>
                                 <span class="btn btn-warning text-white mr-2">{{ $product->product_store }}</span>
                             </td>
