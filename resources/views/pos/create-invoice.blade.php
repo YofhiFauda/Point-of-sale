@@ -23,7 +23,7 @@
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header bg-white">
-                                        <h3 class="modal-title text-center mx-auto">Total Bayar ${{ Cart::total() }}</h3>
+                                        <h3 class="modal-title text-center mx-auto">Total Bayar Rp {{ Cart::total() }}</h3>
                                     </div>
                                     <form action="{{ route('pos.storeOrder') }}" method="post">
                                         @csrf

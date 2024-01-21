@@ -14,14 +14,7 @@
             </div>
         @endif
         </div>
-        {{-- <div class="col-lg-4">
-            <div class="card card-transparent card-block card-stretch card-height border-none">
-                <div class="card-body p-0 mt-lg-2 mt-0">
-                    <h3 class="mb-3">Hi {{ auth()->user()->name }}, Good Morning</h3>
-                    <p class="mb-0 mr-4">Your dashboard gives you views of key performance or business process.</p>
-                </div>
-            </div>
-        </div> --}}
+
         <div class="col-lg-12">
             <div class="row">
                 <div class="col-lg-3 col-md-4">
@@ -121,7 +114,7 @@
             </div>
         </div>
 
-        <div class="col-lg-12">
+        <div class="col-lg-12 mt-12">
             <div class="table-responsive rounded mb-3">
                 <table class="table mb-0">
                     <thead class="bg-white text-uppercase">
@@ -138,7 +131,7 @@
                     <tbody class="ligth-body">
                         @foreach ($orderDetails as $item)
                         <tr>
-                            <td>{{ $loop->iteration  }}</td>
+                            <td>{{ $orderDetails->firstItem() + $loop->index }}</td>
                             <td>
                                 <img class="avatar-60 rounded" src="{{ $item->product->product_image ? asset('storage/products/'.$item->product_image) : asset('storage/products/default.webp') }}">
                             </td>
@@ -154,9 +147,10 @@
                     </tbody>
                 </table>
             </div>
+            {{ $orderDetails->appends(['filter' => $filter])->links() }}
         </div>
 
-        <div class="col-lg-8">
+        <div class="col-lg-8 mt-12">
             <div class="card card-block card-stretch card-height">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <div class="header-title">
@@ -198,7 +192,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 mt-12">
             <div class="card card-transparent card-block card-stretch mb-4">
                 <div class="card-header d-flex align-items-center justify-content-between p-0">
                     <div class="header-title">
@@ -252,11 +246,4 @@
         window.location.href = "?filter=" + option;
     }
 </script>
-
-<!-- Table Treeview JavaScript -->
-<script src="{{ asset('assets/js/table-treeview.js') }}"></script>
-<!-- Chart Custom JavaScript -->
-<script src="{{ asset('assets/js/customizer.js') }}"></script>
-<!-- Chart Custom JavaScript -->
-<script async src="{{ asset('assets/js/chart-custom.js') }}"></script>
 @endsection
