@@ -14,7 +14,7 @@
 
                 <div class="card-body">
                     <!-- begin: Show Data -->
-                    <div class="form-group row align-items-center">
+                    {{-- <div class="form-group row align-items-center">
                         <div class="col-md-12">
                             <div class="profile-img-edit">
                                 <div class="crm-profile-img-edit">
@@ -22,7 +22,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="row align-items-center">
                         {{-- <div class="form-group col-md-12">
@@ -101,7 +101,7 @@
                         <tr>
                             <td>{{ $loop->iteration  }}</td>
                             <td>
-                                <img class="avatar-60 rounded" src="{{ $item->product->product_image ? asset('storage/products/'.$item->product_image) : asset('storage/products/default.webp') }}">
+                                <img class="avatar-60 rounded" src="{{ $item->product->product_image ? asset('storage/products/'.$item->product_image) : asset('assets/images/product/default.webp') }}">
                             </td>
                             <td>{{ $item->product->product_name }}</td>
                             <td>{{ $item->product->product_code }}</td>

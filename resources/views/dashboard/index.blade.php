@@ -27,7 +27,8 @@
                                 <div>
                                     <p class="mb-2">Total Bayar</p>
                                     {{-- <h4>$ {{ $total_paid }}</h4> --}}
-                                    <h4>Rp {{ number_format($total_paid) }}</h4>
+                                    {{-- <h4>$ {{ number_format($total_paid, 2) }}</h4> --}}
+                                    <h4>Rp {{ number_format($total_paid, 2, ',', '.') }}</h4>
                                 </div>
                             </div>
                             <div class="iq-progress-bar mt-2">
@@ -47,7 +48,7 @@
                                 <div>
                                     <p class="mb-2">Total Kembalian</p>
                                     {{-- <h4>$ {{ $total_due }}</h4> --}}
-                                    <h4>Rp {{ number_format($total_due) }}</h4>
+                                    <h4>Rp {{ number_format($total_due, 2, ',', '.') }}</h4>
                                 </div>
                             </div>
                             <div class="iq-progress-bar mt-2">
@@ -133,15 +134,18 @@
                         <tr>
                             <td>{{ $orderDetails->firstItem() + $loop->index }}</td>
                             <td>
-                                <img class="avatar-60 rounded" src="{{ $item->product->product_image ? asset('storage/products/'.$item->product_image) : asset('storage/products/default.webp') }}">
+                                <img class="avatar-60 rounded" src="{{ $item->product->product_image ? asset('storage/products/'.$item->product->product_image) : asset('assets/images/product/default.webp') }}">
                             </td>
                             <td>{{ $item->product->product_name }}</td>
                             <td>{{ $item->product->product_code }}</td>
                             <td>{{ $item->quantity }}</td>
                             {{-- <td>${{ $item->unitcost }}</td>
                             <td>${{ $item->total }}</td> --}}
-                            <td>Rp {{ number_format($item->unitcost) }}</td>
-                            <td>Rp {{ number_format($item->total) }}</td>
+
+                            {{-- <td>Rp {{ number_format($item->unitcost) }}</td> --}}
+                            <td>Rp {{ number_format($item->unitcost, 2, ',', '.') }}</td>
+                            {{-- <td>Rp {{ number_format($item->total) }}</td> --}}
+                            <td>Rp {{ number_format($item->total, 2, ',', '.') }}</td>
                         </tr>
                         @endforeach
                     </tbody>

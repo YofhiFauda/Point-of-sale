@@ -123,7 +123,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="buying_price">Harga Beli <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control @error('buying_price') is-invalid @enderror" id="buying_price" name="buying_price" value="{{ old('buying_price', $product->buying_price) }}" required>
+                                <input type="text" class="form-control @error('buying_price') is-invalid @enderror" id="buying_price" name="buying_price" value="{{ old('buying_price', number_format($product->buying_price, 0, ',', '.')) }}" required>
                                 @error('buying_price')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -132,7 +132,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="selling_price">Harga Jual <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control @error('selling_price') is-invalid @enderror" id="selling_price" name="selling_price" value="{{ old('selling_price', $product->selling_price) }}" required>
+                                <input type="text" class="form-control @error('selling_price') is-invalid @enderror" id="selling_price" name="selling_price" value="{{ old('buying_price', number_format($product->selling_price, 0, ',', '.')) }}" required>
                                 @error('selling_price')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -153,6 +153,7 @@
     <!-- Page end  -->
 </div>
 
+
 <script>
     $('#buying_date').datepicker({
         uiLibrary: 'bootstrap4',
@@ -167,4 +168,6 @@
 </script>
 
 @include('components.preview-img-form')
+
+
 @endsection

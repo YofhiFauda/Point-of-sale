@@ -72,9 +72,10 @@ class ProductController extends Controller
             'product_store' => 'string|nullable',
             'buying_date' => 'date_format:Y-m-d|max:10|nullable',
             'expire_date' => 'date_format:Y-m-d|max:10|nullable',
-            'buying_price' => 'required|integer',
-            'selling_price' => 'required|integer',
+            'buying_price' => 'numeric|nullable',
+            'selling_price' => 'numeric|nullable',
         ];
+        
 
         $validatedData = $request->validate($rules);
 
@@ -139,8 +140,8 @@ class ProductController extends Controller
             'product_store' => 'string|nullable',
             'buying_date' => 'date_format:Y-m-d|max:10|nullable',
             'expire_date' => 'date_format:Y-m-d|max:10|nullable',
-            'buying_price' => 'required|integer',
-            'selling_price' => 'required|integer',
+            'buying_price' => 'numeric|nullable',
+            'selling_price' => 'numeric|nullable',
         ];
 
         $validatedData = $request->validate($rules);

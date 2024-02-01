@@ -24,7 +24,7 @@
                 <li class="{{ Request::is('pos*') ? 'active' : '' }}">
                     <a href="{{ route('pos.index') }}" class="svg-icon">
                         <i class="fa-solid fa-cart-shopping"></i>
-                        <span class="ml-3">POS</span>
+                        <span class="ml-3">Menu Penjualan</span>
                     </a>
                 </li>
                 @endif

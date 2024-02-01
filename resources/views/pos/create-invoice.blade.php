@@ -57,6 +57,8 @@
                                                     @enderror
                                                 </div>
                                             </div>
+
+                                            
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
@@ -72,7 +74,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-12">
-                            <img src="{{ asset('assets/images/logo.png') }}" class="logo-invoice img-fluid mb-3">
+                            <img src="{{ asset('assets/images/LogoPos6.png') }}" class="logo-invoice img-fluid mb-3">
                         </div>
                     </div>
 
@@ -171,4 +173,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.getElementById('pay').addEventListener('input', function (e) {
+        var value = e.target.value.replace(/\D/g, ''); // Menghapus semua karakter non-digit
+        value = Number(value).toLocaleString('id-ID'); // Menggunakan pemisah ribuan untuk tampilan bahasa Indonesia
+        e.target.value = value;
+    });
+</script>
+
 @endsection

@@ -22,9 +22,10 @@
                     {{-- <button type="submit" class="btn btn-danger" name="delete_all" value="1" onclick="return confirm('Are you sure you want to delete all transactions?')">Hapus Semua Transaksi</button> --}}
                     <form action="{{ route('order.destroyAll') }}" method="post" class="d-inline">
                         @csrf
-                        @method('HAPUS')
-                         <button type="submit" class="btn btn-danger" name="delete_all" value="1" onclick="return confirm('Are you sure you want to delete all transactions?')">Hapus Semua Transaksi</button>
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger" name="delete_all" value="1" onclick="return confirm('Are you sure you want to delete all transactions?')">Hapus Semua Transaksi</button>
                     </form>
+                    
                 </div>
             </div>
         </div>
@@ -120,18 +121,18 @@
                             </td>
                             <td>
                                 <form action="{{ route('order.destroy', $order->id) }}" method="POST" style="margin-bottom: 5px">
-                                    @method('Hapus')
+                                    @method('DELETE')
                                     @csrf
-                                <div class="d-flex align-items-center list-action">
-                                    <a class="btn btn-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Details" href="{{ route('order.orderDetails', $order->id) }}">
-                                        Rincian
-                                    </a>
-                                    <a class="btn btn-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Print" href="{{ route('order.invoiceDownload', $order->id) }}">
-                                        Cetak
-                                    </a>
-                                    <button type="submit" class="btn btn-warning mr-2 border-none" onclick="return confirm('Are you sure you want to delete this record?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="ri-delete-bin-line mr-0"></i></button>
-                                </div>
-                            </form>
+                                    <div class="d-flex align-items-center list-action">
+                                        <a class="btn btn-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Details" href="{{ route('order.orderDetails', $order->id) }}">
+                                            Rincian
+                                        </a>
+                                        <a class="btn btn-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Print" href="{{ route('order.invoiceDownload', $order->id) }}">
+                                            Cetak
+                                        </a>
+                                        <button type="submit" class="btn btn-warning mr-2 border-none" onclick="return confirm('Are you sure you want to delete this record?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="ri-delete-bin-line mr-0"></i></button>
+                                    </div>
+                                </form>                                
                             </td>
                         </tr>
                         @endforeach

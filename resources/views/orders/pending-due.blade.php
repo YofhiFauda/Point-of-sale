@@ -61,7 +61,6 @@
                             <th>No Pesanan</th>
                             <th>@sortablelink('order_date', 'Tanggal Pesanan')</th>
                             <th>Total Pesanan</th>
-                            <th>Harga</th>
                             <th>Harga + PPN</th>
                             <th>Bayar</th>
                             <th>Kembalian</th>
@@ -73,12 +72,10 @@
                     <tbody class="ligth-body">
                         @foreach ($orders as $order)
                         <tr>
-                            <td>{{ (($orders->currentPage() * 10) - 10) + $loop->iteration  }}</td>
+                            <td>{{ (($orders->currentPage() * 10) - 10) + $loop->iteration }}</td>
                             <td>{{ $order->invoice_no }}</td>
                             <td>{{ $order->order_date }}</td>
                             <td>{{ $order->total_products }} pcs</td>
-                            <td>Rp {{ number_format($order->sub_total) }}</td>
-                            {{-- <td>${{ $order->pay }}</td> --}}
                             <td>Rp {{ number_format($order->total) }}</td>
                             <td>Rp {{ number_format($order->pay) }}</td>
                             <td>Rp {{ number_format($order->due) }}</td>
@@ -86,12 +83,15 @@
                             <td>
                                 <span class="badge badge-success">{{ $order->order_status }}</span>
                             </td>
-                                <button type="button" class="btn btn-primary-dark mr-2" data-toggle="modal" data-target=".bd-example-modal-lg" id="{{ $order->id }}" onclick="payDue(this.id)">Bayar Hutang</button>
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary-dark btn-sm" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="payDue({{ $order->id }})">Bayar</button>
                                 </div>
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
+                    
                 </table>
             </div>
             {{ $orders->links() }}
