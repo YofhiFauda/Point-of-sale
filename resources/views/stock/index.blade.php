@@ -23,8 +23,8 @@
             <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
                 <div>
                     <h4 class="mb-3">Daftar Persediaan produk</h4>
-                    <p class="mb-0">A stock product dashboard lets you easily gather and visualize stock product data from optimizing <br>
-                        the stock product experience, ensuring stock product retention. </p>
+                    <p class="mb-0">Dashboard produk stok memungkinkan Anda dengan mudah mengumpulkan dan <br> memvisualisasikan data produk stok dari pengoptimalan
+                        pengalaman produk stok, memastikan retensi stok produk. </p>
                 </div>
             </div>
         </div>

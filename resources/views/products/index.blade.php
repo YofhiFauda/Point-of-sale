@@ -23,8 +23,8 @@
             <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
                 <div>
                     <h4 class="mb-3">Daftar Produk</h4>
-                    <p class="mb-0">A product dashboard lets you easily gather and visualize product data from optimizing <br>
-                        the product experience, ensuring product retention. </p>
+                    <p class="mb-0">Dashboard produk memungkinkan Anda dengan mudah mengumpulkan dan  <br> memvisualisasikan data produk dari pengoptimalan
+                    pengalaman produk, memastikan retensi produk. </p>
                 </div>
                 <div>
                 <a href="{{ route('products.importView') }}" class="btn btn-success add-list">Import</a>

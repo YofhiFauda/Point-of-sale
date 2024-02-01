@@ -28,7 +28,7 @@
                                     <p class="mb-2">Total Bayar</p>
                                     {{-- <h4>$ {{ $total_paid }}</h4> --}}
                                     {{-- <h4>$ {{ number_format($total_paid, 2) }}</h4> --}}
-                                    <h4>Rp {{ number_format($total_paid, 2, ',', '.') }}</h4>
+                                    <h4>Rp {{ number_format($total_paid, 0, ',', '.') }}</h4>
                                 </div>
                             </div>
                             <div class="iq-progress-bar mt-2">
@@ -134,7 +134,7 @@
                         <tr>
                             <td>{{ $orderDetails->firstItem() + $loop->index }}</td>
                             <td>
-                                <img class="avatar-60 rounded" src="{{ $item->product->product_image ? asset('storage/products/'.$item->product->product_image) : asset('assets/images/product/default.webp') }}">
+                                <img class="avatar-60 rounded" src="{{ $item->product->product_image ? asset('storage/products/'.$product->product_image) : asset('assets/images/product/default.webp') }}">
                             </td>
                             <td>{{ $item->product->product_name }}</td>
                             <td>{{ $item->product->product_code }}</td>

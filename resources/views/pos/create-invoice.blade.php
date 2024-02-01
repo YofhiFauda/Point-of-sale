@@ -173,13 +173,4 @@
         </div>
     </div>
 </div>
-
-<script>
-    document.getElementById('pay').addEventListener('input', function (e) {
-        var value = e.target.value.replace(/\D/g, ''); // Menghapus semua karakter non-digit
-        value = Number(value).toLocaleString('id-ID'); // Menggunakan pemisah ribuan untuk tampilan bahasa Indonesia
-        e.target.value = value;
-    });
-</script>
-
 @endsection

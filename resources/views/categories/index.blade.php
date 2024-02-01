@@ -15,8 +15,8 @@
             <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
                 <div>
                     <h4 class="mb-3">Daftar Kategori</h4>
-                    <p class="mb-0">A Category dashboard lets you easily gather and visualize Category data from optimizing <br>
-                        the Category experience, ensuring Category retention. </p>
+                    <p class="mb-0">Dashboard Kategori memungkinkan Anda dengan mudah mengumpulkan dan <br> memvisualisasikan data Kategori dari pengoptimalan
+                        pengalaman Kategori, memastikan retensi Kategori.</p>
                 </div>
                 <div>
                 <a href="{{ route('categories.create') }}" class="btn btn-primary add-list"><i class="fas fa-plus mr-3"></i>Buat Kategori</a>
