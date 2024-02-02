@@ -129,8 +129,10 @@
                                                 <h6 class="mb-0">{{ $item->name }}</h6>
                                             </td>
                                             <td class="text-center">{{ $item->qty }}</td>
-                                            <td class="text-center">{{ $item->price }}</td>
-                                            <td class="text-center"><b>{{ $item->subtotal }}</b></td>
+                                            {{-- <td class="text-center">{{ $item->price }}</td> --}}
+                                            <td class="text-center"><b> {{ number_format(  $item->price, 0, ',', '.') }}</b></td>
+                                            <td class="text-center"><b> {{ number_format( $item->subtotal, 0, ',', '.') }}</b></td>
+                                            {{-- <td class="text-center"><b>{{ $item->subtotal }}</b></td> --}}
                                         </tr>
 
                                         @endforeach

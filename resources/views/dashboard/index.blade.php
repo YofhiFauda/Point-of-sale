@@ -48,7 +48,7 @@
                                 <div>
                                     <p class="mb-2">Total Kembalian</p>
                                     {{-- <h4>$ {{ $total_due }}</h4> --}}
-                                    <h4>Rp {{ number_format($total_due, 2, ',', '.') }}</h4>
+                                    <h4>Rp {{ number_format($total_due, 0, ',', '.') }}</h4>
                                 </div>
                             </div>
                             <div class="iq-progress-bar mt-2">
@@ -115,45 +115,6 @@
             </div>
         </div>
 
-        <div class="col-lg-12 mt-12">
-            <div class="table-responsive rounded mb-3">
-                <table class="table mb-0">
-                    <thead class="bg-white text-uppercase">
-                        <tr class="ligth ligth-data">
-                            <th>No.</th>
-                            <th>Photo</th>
-                            <th>Nama Produk</th>
-                            <th>Kode Produk</th>
-                            <th>Order</th>
-                            <th>Harga</th>
-                            <th>Total(+PPN)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="ligth-body">
-                        @foreach ($orderDetails as $item)
-                        <tr>
-                            <td>{{ $orderDetails->firstItem() + $loop->index }}</td>
-                            <td>
-                                <img class="avatar-60 rounded" src="{{ $item->product->product_image ? asset('storage/products/'.$product->product_image) : asset('assets/images/product/default.webp') }}">
-                            </td>
-                            <td>{{ $item->product->product_name }}</td>
-                            <td>{{ $item->product->product_code }}</td>
-                            <td>{{ $item->quantity }}</td>
-                            {{-- <td>${{ $item->unitcost }}</td>
-                            <td>${{ $item->total }}</td> --}}
-
-                            {{-- <td>Rp {{ number_format($item->unitcost) }}</td> --}}
-                            <td>Rp {{ number_format($item->unitcost, 2, ',', '.') }}</td>
-                            {{-- <td>Rp {{ number_format($item->total) }}</td> --}}
-                            <td>Rp {{ number_format($item->total, 2, ',', '.') }}</td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-            {{ $orderDetails->appends(['filter' => $filter])->links() }}
-        </div>
-
         <div class="col-lg-8 mt-12">
             <div class="card card-block card-stretch card-height">
                 <div class="card-header d-flex align-items-center justify-content-between">
@@ -213,12 +174,15 @@
                 <div class="card-body card-item-right">
                     <div class="d-flex align-items-top">
                         <div class="bg-warning-light rounded">
+                            {{-- <img src="{{ $product->product_image ? asset('storage/products/'.$product->product_image) : asset('assets/images/product/default.webp') }}" class="style-img img-fluid m-auto" alt="image"> --}}
                             <img src="../assets/images/product/04.png" class="style-img img-fluid m-auto" alt="image">
                         </div>
                         <div class="style-text text-left">
                             <h5 class="mb-2">{{ $product->product_name }}</h5>
                             <p class="mb-2">Stock : {{ $product->product_store }}</p>
-                            <p class="mb-0">Price : Rp {{ $product->selling_price }}</p>
+                            <p class="mb-0">Price : Rp {{ number_format($product->selling_price, 0, ',', '.') }}</p>
+                            {{-- <p class="mb-0">Price : Rp {{ $product->selling_price }}</p> --}}
+                            
                         </div>
                     </div>
                 </div>

@@ -63,7 +63,7 @@
                             <th>Total Pesanan</th>
                             <th>Harga + PPN</th>
                             <th>Bayar</th>
-                            <th>Kembalian</th>
+                            <th>Hutang</th>
                             <th>Pembayaran</th>
                             <th>Status</th>
                             <th>Aksi</th>
